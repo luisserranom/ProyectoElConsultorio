@@ -27,53 +27,63 @@
 <br>
 <body>
     <div class="container">
-        <div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
-            <ul class="nav nav-tabs justify-content-end">
-                <li class="nav-item">
-                <a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">List</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Form</a>				   	
-                </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Roster</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="userList" class="table table-bordered table-hover table-striped">
-                                    <thead class="thead-light">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Rut</th>
-                                        <th scope="col">Primer</th>
-                                        <th scope="col">Apellido</th>
-                                        <th scope="col">Especialidad</th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
-                                      {% include 'gestionMedico/listarMedicos.html' %}
-                                </table>
-                            </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="form-tab">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>User Information</h4>
-                        </div> 
-                        <div class="card-body">
-                          {% include 'gestionMedico/crear.html' %}
-                        </div>
-                    </div>
-                 </div>
+      <div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
+        <ul class="nav nav-tabs justify-content-end">
+          <li class="nav-item">
+          <a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">Lista Especialistas</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Agregar Especialista</a>				   	
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+            <div class="card">
+              <div class="card-header">
+                <h4>Lista Especialistas</h4>
               </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table id="userList" class="table table-bordered table-hover table-striped">
+                    <thead class="thead-light">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Rut</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido</th>
+                      <th scope="col">Especialidad</th>
+                      <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% include 'gestionMedico/listarMedicos.html' %}
+                    </tbody>
+                  </table>
+                </div>
+    
+              </div>
+            </div>
           </div>
+          <div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="form-tab">
+            <div class="card">
+              <div class="card-header">
+                <h4>Agregar Especialista</h4>
+              </div>
+              <div class="card-body">
+                  {% include 'gestionMedico/crear.html' %}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+
+
+
+
+
+
 {% endblock %}
 
 

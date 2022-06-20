@@ -1,6 +1,6 @@
 {% if especialista %}
 {% for especialista in especialista %}
-  <tbody>
+<tr>
       <td>{{especialista.id_especialista}}</td>
       <td>{{especialista.rut_especialista}}</td> 
       <td>{{especialista.nombre_especialista }}</td> 
@@ -13,6 +13,6 @@
           <a  href="{% url 'eliminar-medico' especialista.rut_especialista %}"> <i class="fas fa-user-times"></i>
         </a>
     </td>
-  </tbody>
+  <tr>
 {% endfor %}
 {% endif %}
