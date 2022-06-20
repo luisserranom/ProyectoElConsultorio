@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% if listaSolic  %}
+    {% for list in listaSolic  %}
+    
+        <p>{{list.descripcion}}</p>
+        <p>{{list.hora}}</p>
+        <p>{{list.fecha}}</p>
+    
+        <a  href="{% url 'modif-hora' list.id_solicitud %}">enviar </a>
+
+
+    {% endfor %}
+{% endif %}
+{% endblock  %}
+
+

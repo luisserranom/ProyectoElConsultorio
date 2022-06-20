@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Login{% endblock  %}
+
+{% block boostrap %}
+  <link href="static/login/css/style-login.css" rel="stylesheet" >
+{% endblock %}
+
+
+{% block content %}
+<form class="form" role="form" autocomplete="off" method="POST">
+  {% csrf_token %}
+  <section class="form-login " >
+    {{ form.usuario }}
+    {{ form.password }}
+    <input class="buttons" type="submit" name="" value="Ingresar">
+    <a href="Registrarse.html"><input class="buttons" type="submit" name="" value="Registrarse" ></a>
+    <p><a href="#">¿Olvidastes tu Contraseña?</a></p>
+</form>
+{% endblock %}
+
+{% block js %}
+{% if error %}
+    {% if verificado %}
+        {% if messages %}
+            {% for m in messages  %}
+            <script>
+                swal.fire({
+                "title":"Bienvenido",
+                "text":"{{m}}",
+                "icon":"success",
+                })
+            </script>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+    {% if messages %}
+    {% for m in messages  %}
+    <script>
+        swal.fire({
+        "title":"Error",
+        "text":"{{m}}",
+        "icon":"error",
+        })
+    </script>
+    {% endfor %}
+    {% endif %}
+{% endif%}
+
+{% endblock %}

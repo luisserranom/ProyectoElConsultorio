@@ -1,0 +1,28 @@
+<header>
+    <div class="header-flex">
+        <div class="logo-flex">
+            <a href="{% url 'home' %}">
+                <img
+                    src=" ../static/core/img/925.png "  
+                    alt="logo"
+                    loading="lazy"
+                      
+                />
+            </a>   <!-- 922 para telefono y 925 para escritorio -->   
+        </div>
+      
+        <div class="sesion-flex">
+            <a href="{% url 'login' %}"><button type="button" class="btn-ini btn-primary px-3 me-2" >
+              <i class="fa-solid fa-user"></i><br> Iniciar Sesión
+              </button></a>
+            <a href="{% url 'registrarUsuario' %}"><button type="button" class="btn-ini btn-primary px-3 me-2"  >
+              <i class="fa-solid fa-user-plus"></i>Registrarse
+              </button></a>
+        </div>
+    </div>
+
+<br>
+
+  
+  
+</header>

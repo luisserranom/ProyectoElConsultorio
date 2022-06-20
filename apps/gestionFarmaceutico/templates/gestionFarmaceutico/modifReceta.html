@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %} Modicar receta {% endblock   %}
+
+{% block content %}
+
+{% if receta %}
+    <p> receta.indicaciones </p>
+{% endif %}
+
+<form class="form_2 form" role="form" autocomplete="off" id="form_actualizar"  method="POST">
+    {% csrf_token %}
+    <select  class="form-control" name="estado_receta" >
+        <option value ="RETIRADO" selected>RETIRADO</option>
+        <option values="NO DISPONIBLE" >NO DISPONIBLE</option>
+    </select>
+ <textarea  class="form-control" name="respuesta_receta" placeholder="porque"></textarea>
+ <button type ="submit" > ENVIAR</button>
+</form>
+
+{% endblock  %}

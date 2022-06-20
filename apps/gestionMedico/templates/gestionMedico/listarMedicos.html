@@ -1,0 +1,18 @@
+{% if especialista %}
+{% for especialista in especialista %}
+  <tbody>
+      <td>{{especialista.id_especialista}}</td>
+      <td>{{especialista.rut_especialista}}</td> 
+      <td>{{especialista.nombre_especialista }}</td> 
+      <td>{{especialista.apellido_especialista }}</td>
+      <td>{{especialista.id_especialidad}}</td>
+      <td>
+        <a href="{% url 'editar' especialista.rut_especialista  %}">
+          <i class="fas fa-edit"></i></a> 
+          | 
+          <a  href="{% url 'eliminar-medico' especialista.rut_especialista %}"> <i class="fas fa-user-times"></i>
+        </a>
+    </td>
+  </tbody>
+{% endfor %}
+{% endif %}

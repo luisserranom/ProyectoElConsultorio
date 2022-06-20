@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<p>{{lista.descripcion}}</p>
+<p>{{lista.hora}}</p>
+<p>{{lista.fecha}}</p>
+
+
+<form  class="form" method="POST">
+    {% csrf_token %}
+    <label class="form-label">ingrese estado (aceptado/rechazado)</label>
+    <input  class="form-control"  name="estado" type="text" placeholder="estado">
+    <textarea class="form-control"  name="respuesta" placeholder="INGRESE DESCRIPCION RESPUESTA"></textarea>
+    <button type="submit">enviar </button>
+</form>
+
+{% endblock  %}

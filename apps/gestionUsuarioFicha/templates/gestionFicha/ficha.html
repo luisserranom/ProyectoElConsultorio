@@ -1,0 +1,165 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}FICHA MEDICA{% endblock %} 
+
+{% block content %} 
+    <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-left: 750px; margin-top: 15px; margin-bottom: 15px;"  >
+    Enfermedades Cronicas
+  </button>
+  <br>
+  
+  <!--  inicio Modal 1-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tablas Enfermedades Cronicas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="default">   
+          {% if EnfCronic %}
+            {% for x in EnfCronic %}
+              <tr> 
+                <td>{{x.nombre_enfermedad}}</td>
+              </tr>
+
+            {% endfor %}
+          {% else %}
+            <h5>Usted no presenta enfermedades cronicas en su ficha </h5>
+          {% endif %}
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fin Modal 1-->
+  
+  
+  <!--  inicio Modal 2-->
+  <!-- Button trigger moda2 -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa2" style="margin-left: 740px;  margin-top: 15px; margin-bottom: 15px;">
+    Enfermedades Terminales
+  </button>
+  <br>
+  
+  <!-- Moda2 -->
+  <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tablas Enfermedades Terminales</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="default">
+
+            {% if EnfermedadesTerminales %}
+              {% for x in EnfermedadesTerminales %}
+              <tr>
+                <td> {{x.nombre_enfermedad_terminal}}</td>
+              </tr>
+            {% endfor %}
+            {% else %}
+              <h5>Usted no presenta enfermedades terminales en su ficha </h5>
+            {% endif %}
+          
+            
+          
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- fin Modal 2-->
+  
+  <!--  inicio Modal 3-->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa3"  style="margin-left: 800px;  margin-top: 15px; margin-bottom: 15px;" >
+    Alergia 
+  </button>
+  <br>
+  
+  <!-- Moda3 -->
+  <div class="modal fade" id="exampleModa3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tabla Alergias</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="default">
+            {% if Alergia %}
+              {% for x in Alergia %}
+            <tr>
+              <td>{{x.nombre_alergia}}</td>
+
+            </tr>
+            {% endfor %}
+            {% else %}
+              <h5>Usted no presenta alergias en su ficha </h5>
+            {% endif %}
+          
+          
+          
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fin Modal 3-->
+  
+  <!--  inicio Modal 4-->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa4" style="margin-left: 770px;  margin-top: 15px; margin-bottom: 15px;">
+    Observaciones
+  </button>
+  <br>
+  
+  <!-- Moda4 -->
+  <div class="modal fade" id="exampleModa4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tabla Observaciones</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="m
+          odal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="default">
+            {% if Observaciones %}
+              {% for x in Observaciones %}
+                <tr>
+                <td>{{x.descripcion}}</td>
+                </tr>
+            {% endfor %}
+            {% else %}
+              <h5>Usted no presenta observaciones en su ficha </h5>
+            {% endif %}
+          
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fin Modal 4-->
+  
+ {% endblock  %}
+
+
+ 

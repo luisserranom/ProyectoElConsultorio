@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block content  %}
+
+<form class="form_1 form" role="form"  id="form_buscar" autocomplete="off" method="POST">
+    {% csrf_token %}
+    <input  class="fomr-control" type = "text" name = "paciente_rut" placeholder="rut del paciente">
+    <button type="submit" class="btn btn-sm btn-primary" name="btn-buscar" style="padding: 10px 25px; width: 100%;">Ingresar</button>
+</form>
+
+{% if Receta %}
+  {% for x in Receta %}
+  <article >
+    <div class="container" style="margin-top: 150px; ">
+        <section name="id_rece"  id="menu{{x.id_receta}}">
+          <a href="#menu{{x.id_receta}}">Retiro Medicamento</a>
+          <p style="width: 200px; background-color: rgba(105, 218, 212, 0.966);"><strong>Fecha Retiro</strong></p>
+          <p style="width: 200px; background-color: rgba(105, 218, 212, 0.966);">{{x.fecha_Retiro}}</p>
+          <p style="width: 200px; background-color: rgba(105, 218, 212, 0.966);"><strong>Fecha Limite</strong></p>
+          <p style="width: 200px; background-color: rgba(105, 218, 212, 0.966);">{{x.fecha_limite}}</p>
+          <p style="width: 200px; background-color: rgba(105, 218, 212, 0.966);"><strong>Numero Receta</strong></p>
+          <p  name="receta_num" style="width: 200px; background-color: rgba(105, 218, 212, 0.966);" >{{x.id_receta}}</p>
+          <p style="width: 200px; background-color: rgba(105, 218, 212, 0.966); "><strong>Estado</strong></p>
+          <p style="width: 200px; background-color: rgba(105, 218, 212, 0.966);"><strong>{{x.indicaciones}}</strong></p>
+          
+          <p style="color: rgb(255, 0, 0); width: 200px; background-color: rgba(105, 218, 212, 0.966);">{{x.estado}}</p>
+          <a name="enviar_modif_Recet"  href="{% url 'modifcar-receta' x.id_receta %}" >MODIFICAR </a>
+        </form>
+    </div>
+  </article>
+  {% endfor %}
+  {% else %}
+  <h5>Usted no presenta recetas por retirar </h5>
+{% endif %}
+  
+
+
+{% endblock  %}
+
+

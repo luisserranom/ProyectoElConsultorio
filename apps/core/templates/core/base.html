@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es-cl">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="INDEX">
+    <meta name="author" content="Grupo 3">
+
+    <link href="{% static 'core/css/bootstrap.min.css' %}" tpye = "MIME" rel="stylesheet" >
+    <link href="{% static 'core/css/style.css' %}" rel="stylesheet" >
+    <link href="{% static 'core/css/style-index.css' %}" rel="stylesheet" >
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script 
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script> <!--Biblioteca de logos  fontawesome, forma nube-->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <!--sweet alert script-->
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script> <!--Biblioteca de logos  fontawesome, forma nube--> 
+    
+    <script src="{% static 'core /bootstrap.min.js' %}"></script>
+
+    <script src="https://kit.fontawesome.com/64af136b72.js" crossorigin="anonymous"></script>
+    <!--JQUERY-->
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script 
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    
+    <!-- Nuestro css   !!! VER FUNCION DE TABLA-->
+    {% comment %} <link rel="stylesheet" type="text/css" href="static/css/user-form.css"
+      th:href="@{/css/user-form.css}">
+  {% endcomment %}
+
+
+
+
+    <!-- DATA TABLE -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">	
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+
+    <script type="text/javascript">
+	    $(document).ready(function() {
+	        //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
+	        $('#userList').DataTable();
+	    } );
+	</script>
+
+  <style>
+    body{
+        background-image: url('{% static 'core/img/fondo5.jpg' %}');
+        background-repeat:repeat ;
+    }
+</style>
+    {% block boostrap %}
+    {% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+{% include 'core/Header/headerPrincipal.html' %}
+  {%  if request.session.paciente_login %}
+
+    {% include 'core/navbar/navbarPaciente.html' %}
+
+  {% elif request.session.admin_login %}
+
+  {% include 'core/navbar/navbarAdministrativo.html' %}
+
+  {% elif request.session.farmaceutico_login %}
+
+  {% include 'core/navbar/navbarFarmaceutico.html' %}
+
+  {% else %}
+
+    {% include 'core/navbar/navbarPrincipal.html' %}
+
+  {% endif %}
+
+        </div>
+      </div>
+    </nav>
+    <br>
+    {% block content %}
+        <!--CONTENIDO PAGINAS WEB-->
+    {% endblock %}
+    <br>  
+<article>
+  
+  <body>
+    
+    
+    
+
+    {% block js %}
+    {% if messages %}
+    {% for m in messages  %}
+    <script>
+      swal.fire({
+        "title":"Felicitaciones",
+        "text":"{{m}}",
+        "icon":"success",
+      })
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#ir-arriba').click(function(){
+                $('body, html').animate({
+                    scrollTop: '0px'
+                }, 600);
+            });
+            $(window).scroll(function(){
+                if($(this).scrollTop() > 0){
+                    $('#ir-arriba').slideDown();
+                }else{
+                    $('#ir-arriba').slideUp();
+                }
+            });
+        });
+    </script>
+    {% endfor %}
+    {% endif %}
+    {% endblock %}
+
+  </body>
+
+</article>
+<footer class="text-center text-white" style="background-color: #25647f;">
+  <!-- Grid container -->
+  <div class="container p-4">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Direccion</h5>
+  
+          <ul class="list-unstyled mb-0">
+            <li>
+              <h6  class="text-dark">Micasita #0420</h6>
+            </li>
+            <li>
+              <h6  class="text-dark">Comuna San bernardo</h6>
+            </li>
+          
+          </ul>
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-0">Contactanos</h5>
+  
+          <ul class="list-unstyled">
+            <li>
+              <h6 class="text-dark">+56 22 2222 2222</h6>
+            </li>
+            <li>
+              <h6 class="text-dark">Elconsultorio@gmail.com</a>
+            </li>
+            
+          </ul>
+        </div>
+        <!--Grid column-->
+        
+  
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Horarios</h5>
+  
+          <ul class="list-unstyled mb-0">
+            <li>
+              <h6 class="text-dark">Lunes a jueves 08:30 a 17:00</h6>
+            </li>
+            <li>
+              <h6  class="text-dark">Viernes 08:30 a 14:00</h6>
+            </li>
+            <li>
+              <h6 class="text-dark">Sabado y domingo cerrado</h6>
+            </li>
+          
+          </ul>
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <a class="img-footer" href="index.html"><img src="../static/core/img/925.png" alt="logo" ></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  
+        
+        </div>
+        <!--Fin Datos Footer-->
+        <!--Inicio Sociales Footer-->
+      
+          <!-- Grid container -->
+          <div class="container-redes p-4 pb-0" >
+            <!-- Section: Social media -->
+            <section class="mb-4">
+              <!-- Facebook -->
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+        
+              <!-- Twitter -->
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-twitter"></i
+              ></a>
+        
+              
+        
+              <!-- Instagram -->
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-instagram"></i
+              ></a>
+        
+              
+        
+              <!-- Whatsapp -->
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+            </section>
+            <!-- Section: Social media -->
+          </div>
+          <!-- Grid container -->
+        
+          <!-- Copyright -->
+          <div class="FooterInterior" >
+            "© 2022 Copyright"
+            <h6 class="text-white">El Consultorio</h6>
+          </div>
+          <!-- Copyright -->
+      
+
+        <!--Fin sociales Footer-->
+        
+
+</footer>
+
+
+
+</html>
+
+
+
+
+
