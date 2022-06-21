@@ -50,17 +50,17 @@ def login(request):
                             }                 
                             return render(request,'core/home.html',data)
                         else:
-                            messages.error(request,"Usuario o contraseña invalidos")
+                            """ messages.error(request,"Usuario o contraseña invalidos") """
                             data = {
                                 'form':LoginUsuarioForm(),
                                 'error':'Usuario o contraseña invalidos'
                                 }
                             return render(request,'registration/login.html',data)
                     else:
-                        messages.error(request,"Error al ingresar sus datos, intentelo nuevamente")
+                        """ messages.error(request,"Error al ingresar sus datos, intentelo nuevamente") """
                         data = {
                             'form':LoginUsuarioForm(),
-                            'error':'Error al ingresar susd atos, intentelo nuevamente'
+                            'error':'Error al ingresar sus datos, intentelo nuevamente'
                             }
                         return render(request,'registration/login.html',data)
                 else:

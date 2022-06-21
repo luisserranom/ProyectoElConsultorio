@@ -6,17 +6,19 @@
 
 {% block boostrap %}
   <link href="static/login/css/style-login.css" rel="stylesheet" >
+  <script  src="static/login/js/validacion_login.js"> </script>
 {% endblock %}
 
 
 {% block content %}
-<form class="form" role="form" autocomplete="off" method="POST">
+<form class="form" id = "formulario" name="formulario" role="form" autocomplete="off" method="POST">
   {% csrf_token %}
   <section class="form-login " >
+      <label class = "fomr-label" id = "label_error" disabled></label>
     {{ form.usuario }}
     {{ form.password }}
-    <input class="buttons" type="submit" name="" value="Ingresar">
-    <a href="Registrarse.html"><input class="buttons" type="submit" name="" value="Registrarse" ></a>
+    <input class="buttons" type="button" onClick="validaForm();" name="" value="Ingresar">
+    <a href="{% url 'registrarUsuario' %}"><input class="buttons" name="" value="Registrarse" ></a>
     <p><a href="#">¿Olvidastes tu Contraseña?</a></p>
 </form>
 {% endblock %}

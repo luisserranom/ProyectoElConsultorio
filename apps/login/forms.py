@@ -16,6 +16,6 @@ class LoginUsuarioForm(forms.ModelForm):
             'password':'password',
         }
         widgets = {
-            'usuario': forms.TextInput(attrs={'class':'form-control','placeholder':'Usuario'}),
-            'password': forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password'}),
+            'usuario': forms.TextInput(attrs={'class':'form-control','placeholder':'Usuario','id':'usuario'}),
+            'password': forms.PasswordInput(attrs={'class':'form-control','placeholder':'Password','id':'password'}),
         }
