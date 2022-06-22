@@ -2,18 +2,20 @@
 {% load static %}
 
 {% block content %}
-
-<p>{{lista.descripcion}}</p>
-<p>{{lista.hora}}</p>
-<p>{{lista.fecha}}</p>
+<div style="background-color: #25647f; margin-left: 600px; margin-right:600px;"> 
+<p  style=" margin-left:10px; color: white; ">{{lista.descripcion}}</p>
+<p  style=" margin-left:10px; color: white; ">{{lista.hora}}</p>
+<p  style=" margin-left:10px; color: white; ">{{lista.fecha}}</p>
 
 
 <form  class="form" method="POST">
     {% csrf_token %}
-    <label class="form-label">ingrese estado (aceptado/rechazado)</label>
-    <input  class="form-control"  name="estado" type="text" placeholder="estado">
+    <label class="form-label" style=" margin-left:10px; color: white; ">ingrese estado (aceptado/rechazado)</label>
+    <input  class="form-control"   name="estado" type="text" placeholder="estado">
     <textarea class="form-control"  name="respuesta" placeholder="INGRESE DESCRIPCION RESPUESTA"></textarea>
-    <button type="submit">enviar </button>
+    <button type="submit" class="btn-ini">enviar </button>
 </form>
 
 {% endblock  %}
+
+</div>
