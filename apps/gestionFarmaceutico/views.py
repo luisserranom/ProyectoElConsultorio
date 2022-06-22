@@ -7,14 +7,10 @@ def homeFarm(request):
     try:   
         if request.session['farmaceutico_login']['userF']:
             if request.method == 'POST':
-                if 'btn-buscar' in request.POST:
-                    """ TRAIGO DATOS DE LA SESION """
-                    rutSession = request.POST.get('paciente_rut')
-                    
+                rutSession = request.POST.get('paciente_rut')
+                pacienteVer = Paciente.objects.filter(rut = rutSession).exists()
+                if pacienteVer:
                     paciente = Paciente.objects.get(rut = rutSession)
-                    if paciente == None:
-                        messages.error(request,"error paciente no existe")
-                        return render(request,'gestionFarmaceutico/gestFarm.html')
                     fichaVer = FichaMedica.objects.filter(id_paciente = paciente).exists()
                     if fichaVer:
                         ficha = FichaMedica.objects.filter(id_paciente = paciente)
@@ -45,12 +41,23 @@ def homeFarm(request):
                             'ficha' : ficha
                         }
                         print("no entraste al if de abajo mi")
-                        return render(request,'gestionFarmaceutico/gestFarm.html',data)                          
-                else:              
+                        return render(request,'gestionFarmaceutico/gestFarm.html',data)  
+                    else:
+                        messages.error(request,"no se encuentra el paciente vuelva a ingresarlo")
+                        data={
+                        'Receta' : False,
+                        'ficha' : False
+                        }
+                        return render(request,'gestionFarmaceutico/gestFarm.html',data)             
+                        
+                
+                else:
                     data={
                         'Receta' : False,
-                    }
+                        'ficha' : False
+                        }
                     return render(request,'gestionFarmaceutico/gestFarm.html',data)
+                     
             else:                    
                 data={
                     'Receta' : False,

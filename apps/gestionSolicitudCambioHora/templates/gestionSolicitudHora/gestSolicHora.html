@@ -1,21 +1,104 @@
 {% extends 'core/base.html' %}
 
+{% block boostrap %}
+  <link href="../static/gestionSolicitud/css/styleSolicitudHora.css " type="text/css" rel="stylesheet" >
+{% endblock %}
+
+
 {% load static %}
 
 {% block content %}
 
-{% if listaSolic  %}
-    {% for list in listaSolic  %}
-    
-        <p>{{list.descripcion}}</p>
-        <p>{{list.hora}}</p>
-        <p>{{list.fecha}}</p>
-    
-        <a  href="{% url 'modif-hora' list.id_solicitud %}">enviar </a>
-
-
-    {% endfor %}
-{% endif %}
+<div class="container">
+    <div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
+      <ul class="nav nav-tabs justify-content-end">
+        <li class="nav-item">
+        <a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">Pendientes</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link " id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="true">Completas</a>				   	
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+          <div class="card">
+            <div class="card-header">
+              <h4>Solicitudes</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table id="userList" class="table table-bordered table-hover table-striped">
+                  <thead class="thead-light">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">descripcion</th>
+                    <th scope="col">opciones</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {% if listaSolic  %}
+                    {% for list in listaSolic  %}
+                    <tr>
+                        <th scope="row">{{list.id_solicitud}}</th>
+                        <td>{{list.hora}}</td>
+                        <td>{{list.fecha}}</td>
+                        <td>{{list.descripcion}}</td>
+                        <td>
+                          <a href="{% url 'modif-hora' list.id_solicitud %}"><i class="fas fa-edit"></i></a>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                {% endif %}
+                  </tbody>
+                </table>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+        <div class="tab-content" id="myTabContent"></div>
+        <div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="list-tab">
+          <div class="card">
+            <div class="card-header">
+              <h4>Solicitudes</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table id="userList" class="table table-bordered table-hover table-striped">
+                  <thead class="thead-light">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Rut</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Especialidad</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Cristian</td>
+                    <td>Ruiz</td>
+                    <td>c.r.username</td>
+                    <td>c.r.username@blog.com</td>
+                    <td>
+                      <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock  %}
 
 
