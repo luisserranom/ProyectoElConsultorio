@@ -48,6 +48,15 @@ h5{
   
 }
 
+.btn-ini{
+  background-color:#25647f;
+  margin-top: 10px ;
+  margin-right: 0px;
+  padding-right: 0px;
+  border-radius:10px;
+  color: white;
+}
+
 .header-flex .logo-flex{
 
   align-items: flex-start;
@@ -69,7 +78,7 @@ nav{
   background-color: #25647f;
   width: 100%;
   margin-top: -2%;
-  
+  color: white;  
   
   
 
@@ -77,10 +86,12 @@ nav{
 
 
   
-  
+
   
 
 }
+
+
 
 .navbar-expand-lg{
   margin: 0% ; 
@@ -95,13 +106,14 @@ nav{
 .nav-link{
   font-family: 'Trebuchet MS', sans-serif;
   font-size: 25px;
-  color: white;
+  color: rgb(255, 255, 255);
 
   
   
   
   
 }
+
 
 
 
@@ -113,7 +125,7 @@ body{
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;
-  background-color: rgba(251, 254, 251, 50%);
+  /* background-color: rgba(251, 254, 251, 50%); */
  
   
  }
@@ -185,7 +197,10 @@ footer{
 
 article{
   background-color: rgba(251, 254, 251, 88%);
-  margin-bottom: -78px;
+  margin-bottom: -5px;
+  margin-top: -5px;
+  padding-top: 70px;
+  padding-bottom: 100px;
   
   
 }
@@ -374,11 +389,11 @@ article{
   }
   
   article{
-    margin-top: -31px;
+    margin-top: -3px;
     background-color: rgba(251, 254, 251, 88%);
-    
-    
-    
+    margin-bottom: -60px;
+    padding-bottom: 200px;
+    padding-top: 50px;
   }
 }
 
@@ -562,6 +577,10 @@ article{
 
     margin-top: -30px;
     background-color: rgba(251, 254, 251, 88%);
+    margin-bottom: -100px;
+    margin-top: -2px;
+    padding-top: 30px;
+    padding-bottom: -400px;
     
   }
   
@@ -743,8 +762,10 @@ article{
   
   article{
     background-color: rgba(251, 254, 251, 88%);
-    margin-top: -30px;
-    
+    margin-top: -1px;
+    margin-bottom: -100px;
+    padding-bottom: 200px;   
+    padding-top: 5px; 
   }
   
   .img-footer{
@@ -927,7 +948,11 @@ article{
   article{
 
     background-color: rgba(251, 254, 251, 88%);
-    margin-top: -30px;
+    
+    margin-top: -2px;
+    margin-bottom: -100px;
+    padding-top: 10px;
+    padding-bottom: -60px;
 
     
   }
