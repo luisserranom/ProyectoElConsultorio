@@ -82,6 +82,7 @@
 
     <title>{% block title %}{% endblock %}</title>
 </head>
+
 {% include 'core/Header/headerPrincipal.html' %}
   {%  if request.session.paciente_login %}
 
@@ -101,20 +102,15 @@
 
   {% endif %}
 
-        </div>
-      </div>
-    </nav>
-    <br>
+  <article>
+  
+    <body>
+  
+
     {% block content %}
         <!--CONTENIDO PAGINAS WEB-->
     {% endblock %}
-    <br>  
-<article>
   
-  <body>
-    
-    
-    
 
     {% block js %}
     {% if messages %}
@@ -125,22 +121,6 @@
         "text":"{{m}}",
         "icon":"success",
       })
-    </script>
-    <script>
-        $(document).ready(function(){
-            $('#ir-arriba').click(function(){
-                $('body, html').animate({
-                    scrollTop: '0px'
-                }, 600);
-            });
-            $(window).scroll(function(){
-                if($(this).scrollTop() > 0){
-                    $('#ir-arriba').slideDown();
-                }else{
-                    $('#ir-arriba').slideUp();
-                }
-            });
-        });
     </script>
     {% endfor %}
     {% endif %}

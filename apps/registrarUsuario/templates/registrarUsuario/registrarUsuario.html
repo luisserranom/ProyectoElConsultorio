@@ -1,67 +1,38 @@
 {% extends 'core/base.html' %} 
+
 {% load static %}
+
+{% block boostrap %}
+<link href="static/registrarUsuario/css/registroUsuario.css" rel="stylesheet" >
+<script src="static/registrarUsuario/js/validar_formulario.js"></script>
+{% endblock %}
 {% block title %}Registrar usuario{% endblock  %}
+
 {% block content  %}
-<div class="container mt-3"  style="max-width: 500px; border: none; 
-            border-radius: 6px; box-shadow: 1px 1px 8px grey; padding: 25px 15px;">
-    <div class="row">
-        {% if error %}
-            <p style="background-color:red;text-align: center;"><strong>{{error}}</strong> </p>
-        {% endif %}
-        <div class="col-12">
-            <form class="form" role="form" autocomplete="off" method="POST" >
-                {% csrf_token %}  
-                <div class="form-group mb-3">
-                    <label class="control-label"><strong>Nombre:</strong></label>
-                    <div class="col-12 text-center">
-                        <input class="controls" type="text" name="nombre" placeholder="Nombre">
-                    </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label class="control-label"><strong>Primer apellido</strong></label>
-                    <div class="col-12 text-center">
-                        <input class="controls" type="text" name="apellido1" placeholder="Primer apellido">
-                    </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label class="control-label"><strong>Segundo apellido</strong></label>
-                    <div class="col-12 text-center">
-                        <input class="controls" type="text" name="apellido2" placeholder="Segundo apellido">
-                    </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label class="control-label"><strong>rut</strong></label>
-                    <div class="col-12 text-center">
-                        <input class="controls" type="text" name="rut" placeholder="rut">
-                    </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label class="control-label"><strong>Correo electronico</strong></label>
-                    <div class="col-12 text-center">
-                        <input class="controls" type="text" name="correo" placeholder="Correo electronico">
-                    </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label class="control-label"><strong>Contraseña</strong></label>
-                    <div class="col-12 text-center">
-                        <input class="controls" type="password" name="contrasena" placeholder="Contraseña">
-                    </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label class="control-label"><strong>Repita contraseña</strong></label>
-                    <div class="col-12 text-center">
-                        <input class="controls" type="password" name="Rcontrasena" placeholder="Contraseña">
-                    </div>
-                </div>
-                <div class="col-12 text-center mt-3">
-                    <div class="form-group ">
-                      <button type="submit" class="btn btn-sm btn-primary" style="padding: 10px 25px; width: 100%;">Ingresar</button>
-                      <button type="reset" class="btn btn-sm btn-secondary" style="padding: 10px 25px; width: 100%;">Limpiar Campos</button>
-                    </div>
-                  </div>
-        </div>       
-    </div> 
-</div>
+
+<form class="form" id="formulario" name="formulario" role="form" autocomplete="off" method="POST" >
+    {% csrf_token %}  
+    <section class="form-login" style="height: auto;">
+        <label class="controls" id ="error_form_rut" style="display:None;" ></label>
+        <input class="controls"  id="rut" type="text" name="rut" onclick="blanquearRut();" value="" placeholder="RUT">
+        <label class="controls" id ="error_form_nombre" style="display:None;" ></label>
+        <input class="controls" id="nombre" type="text" name="nombre" value="" placeholder="Nombre">
+        <label class="controls" id ="error_form_Papellido" style="display:None;" ></label>
+        <input class="controls" id="Papellido" type="text" name="apellido1" value="" placeholder="Primer apellido">
+        <label class="controls" id ="error_form_Sapellido" style="display:None;" ></label>
+        <input class="controls" id="Sapellido" type="text" name="apellido2" value="" placeholder="Segundo apellido">
+        <label class="controls" id ="error_form_correo" style="display:None;" ></label>
+        <input class="controls" id="correo" type="text" name="correo" value="" placeholder="Correo electronico">
+        <label class="controls" id ="error_form_psw1" style="display:None;" ></label>
+        <input class="controls" id="psw1" type="password" name="contrasena" value="" placeholder="Contraseña">
+        <label class="controls" id ="error_form_psw2" style="display:None;" ></label>
+        <input class="controls"  id="psw2" type="password" name="Rcontrasena" value="" placeholder="Confirmar Contraseña">
+        <input class="buttons" type="button" name="" value="Registarse" onclick="validaForm();">
+    </section>
+</form>
+
+
+
 {% endblock  %}
 {% block js %}
 {% if error %}
@@ -93,22 +64,3 @@
 {% endif%}
 
 {% endblock %}
-
-<!-- Nuevo registro -->
-<article>
-    <body>
-        <section class="form-login" style="height: auto;">
-          <input class="controls" type="text" name="Rut" value="" placeholder="RUT">
-          <input class="controls" type="text" name="nombre" value="" placeholder="Nombre">
-          <input class="controls" type="text" name="apellido" value="" placeholder="Primer apellido">
-          <input class="controls" type="text" name="apellido" value="" placeholder="Segundo apellido">
-          <input class="controls" type="text" name="correo" value="" placeholder="Correo electronico">
-          <input class="controls" type="password" name="contrasena" value="" placeholder="Contraseña">
-          <input class="controls" type="password" name="contrasena" value="" placeholder="Confirmar Contraseña">
-          <input class="buttons" type="submit" name="" value="Registarse">
-    
-    
-        </section>
-    
-    </body>
-</article>
