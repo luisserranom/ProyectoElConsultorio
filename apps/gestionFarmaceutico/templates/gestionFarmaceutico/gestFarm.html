@@ -31,11 +31,12 @@
                 <thead class="thead-light">
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Rut</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Apellido</th>
-                  <th scope="col">Especialidad</th>
-                  <th></th>
+                  <th scope="col">Fecha Retiro</th>
+                  <th scope="col">Fecha Limite</th>
+                  <th scope="col">id_receta</th>
+                  <th scope="col">estado</th>
+                  <th scope="col">Indicaciones</th>
+                  <th>Entregar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,7 @@
                       <td>{{x.id_receta}}</td>
                       <td>{{x.estado}}</td>
                       <td>{{x.indicaciones}}</td>
+                      <td><button class="btn-ini">Entregar</button></td>
                     <td>
                   {% endfor %}
                   {% endif %}
