@@ -49,7 +49,9 @@
                       <td>{{x.id_receta}}</td>
                       <td>{{x.estado}}</td>
                       <td>{{x.indicaciones}}</td>
-                      <td><button class="btn-ini">Entregar</button></td>
+                      <td>
+                        <a href="{% url 'modifcar-receta' x.id_receta %}"><i class="fas fa-edit"></i></a>
+                      </td>
                     <td>
                   {% endfor %}
                   {% endif %}
