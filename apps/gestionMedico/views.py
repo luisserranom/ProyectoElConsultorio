@@ -14,7 +14,7 @@ def gestionMedico(request):
                 rut = request.POST.get('rut_especialista')
                 especialistaVerif = Especialista.objects.filter(rut_especialista = rut).exists()
                 if especialistaVerif:
-                    messages.error(request,"Usuario ya creado")
+                    """ messages.error(request,"Usuario ya creado") """
                     data ={
                         'especialista': Especialista.objects.all(),
                         'especialidad': Especialidad.objects.all(),
@@ -26,7 +26,7 @@ def gestionMedico(request):
                     form = EspecialistaForm(request.POST or None)
                     if form.is_valid():
                         form.save()
-                        messages.success(request,"Agregado correctamente")
+                        """ messages.success(request,"Agregado correctamente") """
                         return redirect('gestionMedico')
             else:
                 data ={
@@ -49,7 +49,7 @@ def eliminarMedico(request,rut):
         if request.session['admin_login']['userA']:
             especialista = Especialista.objects.get(rut_especialista = rut)
             especialista.delete() 
-            messages.success(request,"Eliminado correctamente")
+            """ messages.success(request,"Eliminado correctamente") """
             return redirect('gestionMedico')
         else:
             request.session.flush()
