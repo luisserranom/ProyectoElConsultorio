@@ -20,7 +20,8 @@ def gestionMedico(request):
                         'especialidad': Especialidad.objects.all(),
                         'form':EspecialistaForm(),
                         'error': True,
-                    }
+                        }
+                    """ commit de prueba  """   
                     return render(request,'gestionMedico/GestionDoctor.html',data)
                 else:
                     form = EspecialistaForm(request.POST or None)
