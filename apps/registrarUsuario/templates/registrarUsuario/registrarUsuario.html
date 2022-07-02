@@ -16,17 +16,17 @@
         <label class="controls" id ="error_form_rut" style="display:None;" ></label>
         <input class="controls"  id="rut" type="text" name="rut" onclick="blanquearRut();" value="" placeholder="RUT">
         <label class="controls" id ="error_form_nombre" style="display:None;" ></label>
-        <input class="controls" id="nombre" type="text" name="nombre" value="" placeholder="Nombre">
+        <input class="controls" id="nombre" type="text" name="nombre" value="" onclick="blanquearRut();" placeholder="Nombre">
         <label class="controls" id ="error_form_Papellido" style="display:None;" ></label>
-        <input class="controls" id="Papellido" type="text" name="apellido1" value="" placeholder="Primer apellido">
+        <input class="controls" id="Papellido" type="text" name="apellido1" value="" onclick="blanquearPapellido();" placeholder="Primer apellido">
         <label class="controls" id ="error_form_Sapellido" style="display:None;" ></label>
-        <input class="controls" id="Sapellido" type="text" name="apellido2" value="" placeholder="Segundo apellido">
+        <input class="controls" id="Sapellido" type="text" name="apellido2" value="" onclick="blanquearSapellido();" placeholder="Segundo apellido">
         <label class="controls" id ="error_form_correo" style="display:None;" ></label>
-        <input class="controls" id="correo" type="text" name="correo" value="" placeholder="Correo electronico">
+        <input class="controls" id="correo" type="text" name="correo" value="" onclick="blanquearCorreo();" placeholder="Correo electronico">
         <label class="controls" id ="error_form_psw1" style="display:None;" ></label>
-        <input class="controls" id="psw1" type="password" name="contrasena" value="" placeholder="Contraseña">
+        <input class="controls" id="psw1" type="password" name="contrasena" value="" onclick="blanquearPsw1();" placeholder="Contraseña">
         <label class="controls" id ="error_form_psw2" style="display:None;" ></label>
-        <input class="controls"  id="psw2" type="password" name="Rcontrasena" value="" placeholder="Confirmar Contraseña">
+        <input class="controls"  id="psw2" type="password" name="Rcontrasena" value="" onclick="blanquearPsw2();" placeholder="Confirmar Contraseña">
         <input class="buttons" type="button" name="" value="Registarse" onclick="validaForm();">
     </section>
 </form>
