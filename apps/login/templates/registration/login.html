@@ -15,11 +15,11 @@
   {% csrf_token %}
   <section class="form-login " >
       <label class = "fomr-label" id = "label_error" disabled></label>
-    {{ form.usuario }}
+    {{ form.usuario }}  {% comment %} Recordar a victor de donde saca estas funciones del formulario {% endcomment %}
     {{ form.password }}
     <input class="buttons" type="button" onClick="validaForm();" name="" value="Ingresar">
     <a href="{% url 'registrarUsuario' %}"><input class="buttons"   name="" value="Registrarse" ></a>
-    <p><a href="#">¿Olvidastes tu Contraseña?</a></p>
+    <p><a href="#">¿Olvidaste tu Contraseña?</a></p>
 </form>
 {% endblock %}
 
