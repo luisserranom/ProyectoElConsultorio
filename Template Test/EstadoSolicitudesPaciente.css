@@ -1,0 +1,211 @@
+/* 1 */
+
+@import url(https://fonts.googleapis.com/css?family=Oswald:400);
+
+.navigation {
+  width: 100%;
+  background-color: black;
+}
+
+img {
+  width: 25px;
+  border-radius: 50px;
+  float: left;
+}
+
+.logout {
+  font-size: .8em;
+  font-family: 'Oswald', sans-serif;
+	position: relative;
+  right: -18px;
+  bottom: -4px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity .45s;
+  -webkit-transition: opacity .35s;
+  
+}
+
+.button {
+	text-decoration: none;
+	float: right;
+  padding: 12px;
+  margin: 15px;
+  color: white;
+  width: 25px;
+  background-color: black;
+  transition: width .35s;
+  -webkit-transition: width .35s;
+  overflow: hidden
+}
+
+a:hover {
+  width: 100px;
+}
+
+a:hover .logout{
+  opacity: .9;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+/* 2 */
+*{
+    padding: 0;
+    margin: 0;
+  }
+  
+  
+  h4{
+    font-size: 30px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-style: strong;
+    
+  }
+  
+  h5{
+    font-size: 25px;
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+
+
+
+  .btn-ini{
+    background-color:#25647f;
+    margin-top: 10px ;
+    margin-right: 0px;
+    padding-right: 0px;
+    border-radius:10px;
+  }
+
+
+  
+  
+  /* Fin General */
+
+  /* header */
+  .header-flex{
+    display: flex;
+    background-color: rgba(251, 254, 251, 50%);
+    flex-direction: row;
+    
+    
+  }
+  
+  .header-flex .logo-flex{
+  
+    align-items: flex-start;
+    flex: 5 3 240px;
+    padding-bottom: 35px;
+    padding-top: 20px;
+  }
+  
+  .header-flex .sesion-flex{
+    
+    align-items: flex-end;
+    flex: 0 3 0px;
+    justify-items: center;
+  
+  }
+  /* fin header */
+
+  /* inicio nav */
+  nav{
+    background-color: #25647f;
+    width: 100%;
+    margin-top: -1.8%;
+    
+    
+    
+  
+   /*  height: 70px; */
+  
+  
+    
+    
+    
+  
+  }
+  
+  .navbar-expand-lg{
+    margin: 0% ; 
+    padding: 0%;
+     margin-bottom: 40px;
+  }
+  
+  .navbar-toggler{
+    text-align: center; width: 50%; height: 50px;
+  }
+  
+  .nav-link{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    color: white;
+  
+    
+    
+    
+    
+  }
+
+  /* fin nadvar */
+  /* inicio body */
+
+  body{
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+    
+   
+   
+    
+   }
+
+   /* comboboxFechas */
+   label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+  }
+
+  input,
+  label {
+  margin: .4rem 0;
+}
+
+
+
+
+   /* fin body */
+
+   /* inicio footer */
+
+
+
+.text-dark{
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 100%;
+  margin: 10px;
+  font-style: italic;
+}
+
+
+  footer{
+    margin-bottom: -30px;
+    margin-top: -47.3px;
+  }
+  
+  .img-footer{
+    width: 280px ;
+    height: 140px;
+  }
+  
+  article{
+    background-color: rgba(251, 254, 251, 60%);
+    
+  /* fin footer */
+  }
