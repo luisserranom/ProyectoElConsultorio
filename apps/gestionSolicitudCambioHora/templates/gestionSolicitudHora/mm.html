@@ -7,14 +7,34 @@
 <p  style=" margin-left:10px; color: white; ">{{lista.hora}}</p>
 <p  style=" margin-left:10px; color: white; ">{{lista.fecha}}</p>
 
+<form>
+    <label for="street1_id" class="control-label">Ingrese estado:</label>
+    <select class="form-control" id="state_id"> 
+        
+        <option value="AL">Aceptado</option>
+        <option value="AK">Rechazado</option>
+    </select> 
+   
 
-<form  class="form" method="POST">
+    <div class="form-group"> <!-- Descripcion de respuesta -->
+        <label for="street1_id" class="control-label">Ingrese descripcion de respuesta:</label>
+        <input type="text" class="form-control" id="descripcion" name="respuesta" placeholder="">
+    </div>                    
+                            
+       
+    
+    <div class="form-group"> <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>     
+    
+</form>
+{% comment %} <form  class="form" method="POST">
     {% csrf_token %}
     <label class="form-label" style=" margin-left:10px; color: white; ">ingrese estado (aceptado/rechazado)</label>
     <input  class="form-control"   name="estado" type="text" placeholder="estado">
     <textarea class="form-control"  name="respuesta" placeholder="INGRESE DESCRIPCION RESPUESTA"></textarea>
     <button type="submit" class="btn-ini">enviar </button>
-</form>
+</form> {% endcomment %}
 
 {% endblock  %}
 
