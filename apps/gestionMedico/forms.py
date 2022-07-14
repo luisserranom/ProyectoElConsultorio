@@ -18,10 +18,10 @@ class EspecialistaForm(forms.ModelForm):
             'id_especialidad':'Especialidad',
         }
         widgets = {
-            'rut_especialista': forms.TextInput(attrs={'class':'form-control'}),
-            'nombre_especialista': forms.TextInput(attrs={'class':'form-control'}),
-            'apellido_especialista': forms.TextInput(attrs={'class':'form-control'}),
-            'id_especialidad': forms.Select(attrs={'class':'form-select'}),
+            'rut_especialista': forms.TextInput(attrs={'class':'form-control','id':'rut_espc','onclick':'blanquearRut();'}),
+            'nombre_especialista': forms.TextInput(attrs={'class':'form-control','id':'nombre_espc','onclick':'blanquearNombre();'}),
+            'apellido_especialista': forms.TextInput(attrs={'class':'form-control','id':'apellido_espc','onclick':'blanquearApellido();'}),
+            'id_especialidad': forms.Select(attrs={'class':'form-select','id':'id_especialidad','onclick':'blanquearEspec();'}),
         }
       
 class EspecialistaEditarForm(forms.ModelForm):

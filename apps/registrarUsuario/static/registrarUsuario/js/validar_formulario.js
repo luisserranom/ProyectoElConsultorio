@@ -2,6 +2,11 @@ var regexString =  /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
 var regexCorreo = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
 var regexRut = /^[0-9]+[-|‐]{1}[0-9]{1}$/
 var regexPassword =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
+
+//EXPORTAR VALIDACIONES
+export { regexString }
+
+
 document.addEventListener("DOMContentLoaded", function() {
     var label_error = document.getElementById('error_form_rut');
     label_error.setAttribute("atribute","hidden")
@@ -32,14 +37,14 @@ function validaForm() {
 
         document.getElementById('error_form_rut').style.display="block";
         document.getElementById('error_form_rut').innerHTML = 'Debe ingresar un rut valido (ej:xxxxxxxxx-x)';
-        document.getElementById('rut').focus();
+       
         return 0; 
 
     }
     if(rutSegundaParte.length > rutPrimeraParte.length){
         document.getElementById('error_form_rut').style.display="block";
         document.getElementById('error_form_rut').innerHTML = 'Demaciado caracteres para un rut valido, vuelva a ingresar (ej:xxxxxxxxx-x)';
-        document.getElementById('rut').focus();
+       
         return 0; 
     }
     if(rut.length < 9 && rut.length > 11){
