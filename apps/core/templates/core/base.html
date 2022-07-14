@@ -83,8 +83,25 @@
 
     <title>{% block title %}{% endblock %}</title>
 </head>
+  {%  if request.session.paciente_login %}
 
-{% include 'core/Header/headerPrincipal.html' %}
+    {% include 'core/Header/HeaderPaciente.html' %}
+
+  {% elif request.session.admin_login %}
+
+  {% include 'core/Header/HeaderAdministrador.html' %}
+
+  {% elif request.session.farmaceutico_login %}
+
+  {% include 'core/Header/HeaderFarmaceutico.html' %}
+
+  {% else %}
+
+  {% include 'core/Header/headerPrincipal.html' %}
+
+  {% endif %}
+
+
   {%  if request.session.paciente_login %}
 
     {% include 'core/navbar/navbarPaciente.html' %}

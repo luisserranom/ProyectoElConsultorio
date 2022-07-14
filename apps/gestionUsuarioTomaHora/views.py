@@ -181,7 +181,35 @@ def gestorHora(request):
     except KeyError:
         request.session.flush()
         return redirect('login')
-    return render(request,'tomaHora/GestorHora.html')  
+
+def estadoSolic(request):
+    try:
+        if request.session['paciente_login']['userP']:
+            if request.method == 'POST':
+                pass
+            else:
+                rutSession = request.session['paciente_login']['userP']['rut']
+                paciente = Paciente.objects.get(rut = rutSession)
+                registroHr = RegistroHora.objects.filter(id_paciente = paciente)
+                listaSolic = []
+                for x in registroHr:
+                    id_reg = x.id_registro
+                    verSolic = ListaSolicitudHora.objects.filter(id_registro = id_reg).exists()
+                    if verSolic:
+                        solicitud = ListaSolicitudHora.objects.get(id_registro = id_reg)
+                        listaSolic.append(solicitud)
+                    else:
+                        pass
+                data = {
+                    'lista':listaSolic,
+                }            
+                return render(request,'tomaHora/EstadoSolicitudesPaciente.html',data)
+        else:
+            request.session.flush()
+            return redirect('login')
+    except KeyError:
+        request.session.flush()
+        return redirect('login') 
   
   
   

@@ -12,11 +12,11 @@
         </div>
       
         {% if request.session.admin_login %}
-        log out debe ir aca
+        <!--PASS-->
         {% elif request.session.paciente_login %}
-        log out debe ir aca
+        <!--PASS-->
         {% elif request.session.farmaceutico_login %}
-        log out debe ir aca
+        <!--PASS-->
         {% else %}
             <div class="sesion-flex">
                 <a href="{% url 'login' %}"><button type="button" class="btn-ini  px-3 me-2" >

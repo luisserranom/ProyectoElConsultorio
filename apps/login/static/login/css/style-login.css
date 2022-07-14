@@ -123,16 +123,12 @@ body{
   height: 350px;
   background-color:#25647f;
   margin: auto;
-  
-  
+  border-radius: 7px;
   box-shadow: 7px 13px 37px white;
   padding: 20px 30px;
   border-top: 4px solid white;
   color: rgb(0, 0, 0);
 }
-
-
-
  .form-login h5 {
   margin: 0;
   text-align: center;
@@ -1064,4 +1060,34 @@ article{
   
 /* fin footer */
 
+}
+
+
+#usuario{
+  margin-bottom:3px;
+  border:1px solid black;
+}
+#usuario:focus{
+  border:1px solid blue;
+}
+#password{
+  margin-bottom:5px;
+  border:1px solid black;
+}
+#password:focus{
+  border:1px solid blue;
+}
+.boton-login{
+  border-radius: 0.25rem;
+}
+.boton-login:hover{
+  background-color:#11A49A;
+  opacity:0.3;
+}
+.boton-registrarse{
+  border-radius: 0.25rem;
+}
+.boton-registrarse:hover{
+  background-color:#11A49A;
+  opacity:0.3;
 }

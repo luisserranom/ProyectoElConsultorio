@@ -11,29 +11,18 @@
             </a>   <!-- 922 para telefono y 925 para escritorio -->   
         </div>
       
-        {% if request.session.admin_login %}
-        log out debe ir aca
-        {% elif request.session.paciente_login %}
-        log out debe ir aca
-        {% elif request.session.farmaceutico_login %}
-        log out debe ir aca
-        {% else %}
             <div class="sesion-flex">
                 <div class="navigation">
 
-                    <a href="{% url 'login' %}"><button type="button" class="btn-ini  px-3 me-2" >
+                    <a href="{% url 'logout' %}"><button type="button" class="btn-ini  px-3 me-2" >
                         <i class="fa-solid fa-user"></i><br> Salir
                         </button></a>
-  
-                    
-                  
-                  <div class="logout">LOGOUT</div>
+   
                 
                     </a>
                   
                 </div>
             </div>
-        {% endif %}
     </div>
 
 <br>
