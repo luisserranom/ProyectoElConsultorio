@@ -9,7 +9,29 @@
     <p> receta.indicaciones </p>
 {% endif %}
 
-<form class="form_2 form" role="form" autocomplete="off" id="form_actualizar"  method="POST">
+<form>
+    <label for="street1_id" class="control-label">Ingrese estado:</label>
+    <select class="form-control" id="state_id"> 
+        
+        <option value="AL">Aceptado</option>
+        <option value="AK">Rechazado</option>
+    </select> 
+   
+
+    <div class="form-group"> <!-- Descripcion de respuesta -->
+        <label for="street1_id" class="control-label">Ingrese descripcion de respuesta:</label>
+        <input type="text" class="form-control" id="descripcion" name="respuesta" placeholder="">
+    </div>                    
+                            
+       
+    
+    <div class="form-group"> <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>     
+    
+</form>
+
+{% comment %} <form class="form_2 form" role="form" autocomplete="off" id="form_actualizar"  method="POST">
     {% csrf_token %}
     <select  class="form-control" name="estado_receta" >
         <option value ="RETIRADO" selected>RETIRADO</option>
@@ -17,6 +39,6 @@
     </select>
  <textarea  class="form-control" name="respuesta_receta" placeholder="porque"></textarea>
  <button type ="submit" > ENVIAR</button>
-</form>
+</form> {% endcomment %}
 
 {% endblock  %}
