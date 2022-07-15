@@ -1,15 +1,15 @@
-var regexString =  /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
-var regexRut = /^[0-9]+[-|‐]{1}[0-9]{1}$/
+let regexString =  /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
+let regexRut = /^[0-9]+[-|‐]{1}[0-9]{1}$/
 
 function validaForm() {
-    var rut_especialista = document.getElementById('rut_espc').value;
-    var nombre_espc = document.getElementById('nombre_espc').value;
-    var apellido_espc = document.getElementById('apellido_espc').value;
-    var id_especialidad = document.getElementById('id_especialidad');
-    var select_idEspec = id_especialidad.options[id_especialidad.selectedIndex].text;
-    var rutSeparado = rut_especialista.split('-',2)
-    var rutPrimeraParte = rutSeparado[0]
-    var rutSegundaParte = rutSeparado[1]
+    let rut_especialista = document.getElementById('rut_espc').value;
+    let nombre_espc = document.getElementById('nombre_espc').value;
+    let apellido_espc = document.getElementById('apellido_espc').value;
+    let id_especialidad = document.getElementById('id_especialidad');
+    let select_idEspec = id_especialidad.options[id_especialidad.selectedIndex].text;
+    let rutSeparado = rut_especialista.split('-',2)
+    let rutPrimeraParte = rutSeparado[0]
+    let rutSegundaParte = rutSeparado[1]
 
     if((rut_especialista.length === 0) ||(nombre_espc.length === 0) || (apellido_espc.length === 0) || (select_idEspec.length === 0) ){
         document.getElementById('error_form_rut').style.display="block";

@@ -1,10 +1,7 @@
-var regexString =  /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
-var regexCorreo = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
-var regexRut = /^[0-9]+[-|‐]{1}[0-9]{1}$/
-var regexPassword =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
-
-//EXPORTAR VALIDACIONES
-export { regexString }
+let regexString =  /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
+let regexCorreo = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+let regexRut = /^[0-9]+[-|‐]{1}[0-9]{1}$/
+let regexPassword =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -16,16 +13,16 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function validaForm() {
-    var nombre = document.getElementById('nombre').value;
-    var Papellido = document.getElementById('Papellido').value;
-    var Sapellido = document.getElementById('Sapellido').value;
-    var rut = document.getElementById('rut').value;
-    var correo = document.getElementById('correo').value;
-    var psw1 = document.getElementById('psw1').value;
-    var psw2 =document.getElementById('psw2').value;
-    var rutSeparado = rut.split('-',2)
-    var rutPrimeraParte = rutSeparado[0]
-    var rutSegundaParte = rutSeparado[1]
+    let nombre = document.getElementById('nombre').value;
+    let Papellido = document.getElementById('Papellido').value;
+    let Sapellido = document.getElementById('Sapellido').value;
+    let rut = document.getElementById('rut').value;
+    let correo = document.getElementById('correo').value;
+    let psw1 = document.getElementById('psw1').value;
+    let psw2 =document.getElementById('psw2').value;
+    let rutSeparado = rut.split('-',2)
+    let rutPrimeraParte = rutSeparado[0]
+    let rutSegundaParte = rutSeparado[1]
 
     if((nombre.length === 0) ||(Papellido.length === 0) || (Sapellido.length === 0) || (rut.length === 0) || (correo.length === 0) || (psw1.length === 0) || 
     (psw2.length === 0)  ){

@@ -1,7 +1,14 @@
 {% extends 'core/base.html' %}
+
 {% load static %}
 
-{% block title %} Modicar receta {% endblock   %}
+{% block boostrap %}
+
+  <script src="{% static '../static/farmaceutico/js/validacion.js' %}"></script>
+    
+{% endblock %}
+
+{% block title %} Modicar receta {% endblock %}
 
 {% block content %}
 
@@ -9,36 +16,25 @@
     <p> receta.indicaciones </p>
 {% endif %}
 
-<form>
+<form class="formulario" id="formulario" role="form" autocomplete="off" method="POST">
+    {% csrf_token %}
+    <label class="controls" id ="error_form_select" style="display:None;" ></label>
     <label for="street1_id" class="control-label">Ingrese estado:</label>
-    <select class="form-control" id="state_id"> 
-        
+    <select class="form-control" id="state_id"  onclick="blanquearSelect();"> 
+        <option value="--" selected>------</option>
         <option value="AL">Aceptado</option>
         <option value="AK">Rechazado</option>
     </select> 
    
 
     <div class="form-group"> <!-- Descripcion de respuesta -->
+        <label class="controls" id ="error_form_descripcion" style="display:None;" ></label>
         <label for="street1_id" class="control-label">Ingrese descripcion de respuesta:</label>
-        <input type="text" class="form-control" id="descripcion" name="respuesta" placeholder="">
+        <input type="text" class="form-control" id="descripcion" name="respuesta" placeholder="Descripcion" onclick="blanquearDescripcion();" >
     </div>                    
-                            
-       
-    
     <div class="form-group"> <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <input type="button" class="btn btn-primary" onclick="validarForm() ;" 
+        value="Save Changes">
     </div>     
-    
 </form>
-
-{% comment %} <form class="form_2 form" role="form" autocomplete="off" id="form_actualizar"  method="POST">
-    {% csrf_token %}
-    <select  class="form-control" name="estado_receta" >
-        <option value ="RETIRADO" selected>RETIRADO</option>
-        <option values="NO DISPONIBLE" >NO DISPONIBLE</option>
-    </select>
- <textarea  class="form-control" name="respuesta_receta" placeholder="porque"></textarea>
- <button type ="submit" > ENVIAR</button>
-</form> {% endcomment %}
-
 {% endblock  %}

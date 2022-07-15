@@ -1,9 +1,10 @@
 <header>
+    {% load static %}
     <div class="header-flex">
         <div class="logo-flex">
             <a href="{% url 'home' %}">
                 <img
-                    src=" ../static/core/img/925.png "  
+                    src=" {% static '/core/img/925.png' %}"  
                     alt="logo"
                     loading="lazy"
                       

@@ -44,4 +44,4 @@ def modifHora(request,id):
         data = {
             "lista": ListaSolicitudHora.objects.get(id_solicitud=id)
         }
-        return render(request,'gestionSolicitudHora/mm.html',data)
+        return render(request,'gestionSolicitudHora/modificarHora.html',data)
