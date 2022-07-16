@@ -86,10 +86,7 @@ def modifReceta(request,id):
                 receta.save()
                 print("entre al if ")
                 return redirect('homeFarm')
-            else:
-                data = {
-                    "receta":Receta.objects.get(id_receta = id)
-                }
+            else:             
                 return render(request,'gestionFarmaceutico/modifReceta.html')
     except KeyError:
         request.session.flush()
