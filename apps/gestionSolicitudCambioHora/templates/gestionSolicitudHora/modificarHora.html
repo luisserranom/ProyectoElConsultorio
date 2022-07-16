@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block boostrap %}
-    <script src="../static/gestionSolic/js/validaciones_solicitud.js"></script>
+    <script src="{% static 'gestionSolic/js/validaciones_solicitud.js' %}"></script>
 {% endblock %}
 
 {% block title %} Formulario solicitud horas paciente {% endblock %}
@@ -14,30 +14,25 @@
 <p  style=" margin-left:10px; color: white; ">{{lista.hora}}</p>
 <p  style=" margin-left:10px; color: white; ">{{lista.fecha}}</p>
 
-<form class="form" method="POST">
+<form class="formulario" id="formulario" name="formulario" method="POST">
      {% csrf_token %} 
+    <label class="controls" id ="error_form_select" style="display:None;" ></label>
     <label for="street1_id" class="control-label">Ingrese estado:</label>
-    <select class="form-control" id="state_id"> 
-        <option value="--" selected>-----</option>
-        <option value="AL">Aceptado</option>
-        <option value="AK">Rechazado</option>
+    <select class="form-control" name="estado" id="state_id" onclick="blanquearSelect();"> 
+        <option value="-----" selected>-----</option>
+        <option value="Aceptado">Aceptado</option>
+        <option value="Rechazado">Rechazado</option>
     </select> 
     <div class="form-group"> <!-- Descripcion de respuesta -->
+        <label class="controls" id ="error_form_descripcion" style="display:None;" ></label>
         <label for="street1_id" class="control-label">Ingrese descripcion de respuesta:</label>
-        <input type="text" class="form-control" id="descripcion" name="respuesta" placeholder="">
+        <input type="text" class="form-control" id="descripcion" name="respuesta" placeholder="" onclick="blanquearDescripcion();">
     </div>                                     
     <div class="form-group"> <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="button" onclick="validarForm();" class="btn btn-primary">Enviar</button>
     </div>     
     
 </form>
-{% comment %} <form  class="form" method="POST">
-    {% csrf_token %}
-    <label class="form-label" style=" margin-left:10px; color: white; ">ingrese estado (aceptado/rechazado)</label>
-    <input  class="form-control"   name="estado" type="text" placeholder="estado">
-    <textarea class="form-control"  name="respuesta" placeholder="INGRESE DESCRIPCION RESPUESTA"></textarea>
-    <button type="submit" class="btn-ini">enviar </button>
-</form> {% endcomment %}
 </div>
 {% endblock  %}
 

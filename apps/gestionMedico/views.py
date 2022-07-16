@@ -63,7 +63,6 @@ def editarMedico(request,rut):
     try:
         if request.session['admin_login']['userA']:
             especialista = Especialista.objects.get(rut_especialista = rut)
-            
             if request.method == "POST":
                 form = EspecialistaEditarForm(request.POST or None,instance = especialista)
                 if form.is_valid():
