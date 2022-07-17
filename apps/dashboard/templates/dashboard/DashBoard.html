@@ -3,7 +3,8 @@
 {% load static %}
 
 {% block boostrap %}
-  <link href="../static/dashboard/css/style-dashboard.css " type="text/css" rel="stylesheet" >
+  <link href="{% static 'dashboard/css/style-dashboard.css' %} " type="text/css" rel="stylesheet" >
+  <script src="{% static 'dashboard/js/datos_table.js' %}"></script>
 {% endblock %}
 
 {% block title %} DASHBOARD {% endblock  %}
@@ -20,22 +21,17 @@
               <h4 class="text-light font-weight-bold mb-0">Médicos</h4>
           </div>
           <div class="menu" style="background-color: #25647f; padding-bottom: 400px;">
-              <h5 href="#" class="d-block text-light p-3 border-0"><i class="icon ion-md-apps lead mr-2"></i>
-                  Medico1</h5>
-
-              <h5 href="#" class="d-block text-light p-3 border-0"><i class="icon ion-md-people lead mr-2"></i>
-              medico2</h5>
-
-              <h5 href="#" class="d-block text-light p-3 border-0"><i class="icon ion-md-stats lead mr-2"></i>
-                  medico3</h5>
+                {% if especialista %}
+                    {% for especialista in especialista  %}
+                    <label  id="test" style="display:None">{{countPaciente}}</label>
+                    <a href="{% url 'datos-dash' especialista.id_especialista %}" class="d-block text-light p-3 border-0"><i class="icon ion-md-apps lead mr-2"></i>
+                        {{especialista.nombre_especialista}} {{especialista.apellido_especialista}}</a>
+                    {% endfor %}
+                {% endif %}
              
           </div>
       </div>
-      <!-- Fin sidebar -->
-
-      
-      
-       
+      <!-- Fin sidebar -->  
       <div id="content" class="bg-grey w-100" >
 
             <section class="bg-light py-3" >
@@ -97,7 +93,7 @@
                   labels: ['Feb 2022', 'Mar 2022', 'Abr 2022', 'May 2022'],
                   datasets: [{
                       label: 'Nuevos usuarios',
-                      data: [0, 20, 1200,200 ],
+                      data: [{{countPaciente}} ],
                       backgroundColor: [
                           '#12C9E5',  
                           '#12C9E5',

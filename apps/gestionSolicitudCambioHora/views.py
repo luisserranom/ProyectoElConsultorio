@@ -8,7 +8,7 @@ def homeSolic(request):
         if request.session['admin_login']['userA']:
             if request.method == 'POST':
                 pass
-            else:
+            else:        
                 data = {
                     "listaSolic": ListaSolicitudHora.objects.all()
                 }
@@ -23,38 +23,48 @@ def homeSolic(request):
     
     
 def modifHora(request,id):
-    if request.method == 'POST':
-        estado = request.POST.get("estado")
-        respuesta = request.POST.get('respuesta')
-        print(estado)
-        print(respuesta)
-        solic = ListaSolicitudHora.objects.get(id_solicitud = id)
-        solic.estado = estado
-        if estado.lower() == "aceptado":
-            print("entre al if aceptado")
-            solic.respuesta = ""
-            solic.save()
-            registro = solic.id_registro.id_registro
-        
-            registroI = [registro]
-            for x in registroI:
-                regis = RegistroHora.objects.get(id_registro = x)
-    
-            regis.hora = solic.hora
-            regis.fecha = solic.fecha
-            regis.save()            
-            return redirect('homeSolic')  
-        elif estado.lower() == "rechazado":
-            print("entre al if rechazado")
-            solic.respuesta = respuesta
-            solic.save()
-            return redirect('homeSolic')
+    try:
+        if request.session['admin_login']['userA']:
+            if request.method == 'POST':
+                estado = request.POST.get("estado")
+                respuesta = request.POST.get('respuesta')
+                print(estado)
+                print(respuesta)
+                solic = ListaSolicitudHora.objects.get(id_solicitud = id)
+                solic.estado = estado
+                if estado.lower() == "aceptado":
+                    print("entre al if aceptado")
+                    solic.respuesta = ""
+                    solic.save()
+                    registro = solic.id_registro.id_registro
+                
+                    registroI = [registro]
+                    for x in registroI:
+                        regis = RegistroHora.objects.get(id_registro = x)
+            
+                    regis.hora = solic.hora
+                    regis.fecha = solic.fecha
+                    regis.save()            
+                    return redirect('homeSolic')  
+                elif estado.lower() == "rechazado":
+                    print("entre al if rechazado")
+                    solic.respuesta = respuesta
+                    solic.save()
+                    return redirect('homeSolic')
+                else:
+                    print("error")
+                    return redirect('homeSolic')
+            else:
+                data = {
+                    "lista": ListaSolicitudHora.objects.get(id_solicitud=id)
+                }
+                return render(request,'gestionSolicitudHora/modificarHora.html',data)    
+            
         else:
-            print("error")
-            return redirect('homeSolic')
-    else:
-        data = {
-            "lista": ListaSolicitudHora.objects.get(id_solicitud=id)
-        }
-        return render(request,'gestionSolicitudHora/modificarHora.html',data)
+            request.session.flush()
+            return redirect('login')
+    except KeyError:
+        request.session.flush()
+        return redirect('login')
+   
     

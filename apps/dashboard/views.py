@@ -1,20 +1,33 @@
+from dataclasses import dataclass
+import json
 from django.forms import RegexField
+from django.http import JsonResponse
 from django.shortcuts import render
 from .models import *
 # Create your views here.
 def homeDashboard(request):
     if request.method == 'POST':
-        print("plop")
+        pass
     else:
-        rut = "123456789"   """ AGREGAR DE DONDE SACAR ESPECIALISTA """ 
-        """ especialista =Especialista.objects.get(rut_especialista = "")  """
+        data={
+        'especialista' :Especialista.objects.all() 
+        }
+             
+        return render(request,'dashboard/Dashboard.html',data)
     
-        """ registroHora = RegistroHora.objects.filter(id_especialista = especialista.id_especialista)
-        print(registroHora) """
-        """  cantidadPaciente = 0
+def cargarDatosDash(request,id):
+    print(id)
+    if request.method == 'POST':
+        pass
+    else:
+        registroHora = Hora.objects.filter(id_especialista = id)
+        print(registroHora) 
+        cantidadPaciente = 0
         for x in registroHora:
-            cantidadPaciente= cantidadPaciente + 1 """
+            cantidadPaciente= cantidadPaciente + 1 
         
-        
-        
-        return render(request,'dashboard/Dashboard.html')
+        data={
+            'especialista' :Especialista.objects.all(),
+            'countPaciente':cantidadPaciente
+        }
+        return render(request,'dashboard/Dashboard.html',data)
