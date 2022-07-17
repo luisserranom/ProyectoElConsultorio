@@ -4,35 +4,59 @@
 
 {% block boostrap %}
     <script src="{% static 'gestionSolic/js/validaciones_solicitud.js' %}"></script>
+    <link href="{% static 'gestionSolic/css/style-modHora.css' %}" rel="stylesheet" >
 {% endblock %}
 
 {% block title %} Formulario solicitud horas paciente {% endblock %}
 
 {% block content %}
-<div style="background-color: #25647f; margin-left: 600px; margin-right:600px;"> 
-<p  style=" margin-left:10px; color: white; ">{{lista.descripcion}}</p>
-<p  style=" margin-left:10px; color: white; ">{{lista.hora}}</p>
-<p  style=" margin-left:10px; color: white; ">{{lista.fecha}}</p>
+<div class ="container-form">
+    <div class ="row fila_encabezado"> 
+        <div class ="col-12 sm-2 md-6 xl-12"> 
+            <p class="titulo-desc" > Descripcion de la solicitud: </p>
+        </div>
+    </div> 
+    <div class ="row datos_base mb-5"  style=" margin-bottom:20px !important;"> 
+        <div class ="col-12 "> 
+            <p  > descripcion: {{lista.descripcion}}</p>
+            <p  >hora solicitada: {{lista.hora}}</p>
+            <p class="fecha_datos" >fecha solicitada: {{lista.fecha}}</p>
+        </div>
+    </div>
+    <div class ="row fila_encabezado"> 
+        <div class ="col-12 sm-2 md-6 xl-12"> 
+            <p class="titulo-form" > Respuesta: </p>
+        </div>
+    </div>
 
-<form class="formulario" id="formulario" name="formulario" method="POST">
-     {% csrf_token %} 
-    <label class="controls" id ="error_form_select" style="display:None;" ></label>
-    <label for="street1_id" class="control-label">Ingrese estado:</label>
-    <select class="form-control" name="estado" id="state_id" onclick="blanquearSelect();"> 
-        <option value="-----" selected>-----</option>
-        <option value="Aceptado">Aceptado</option>
-        <option value="Rechazado">Rechazado</option>
-    </select> 
-    <div class="form-group"> <!-- Descripcion de respuesta -->
-        <label class="controls" id ="error_form_descripcion" style="display:None;" ></label>
-        <label for="street1_id" class="control-label">Ingrese descripcion de respuesta:</label>
-        <input type="text" class="form-control" id="descripcion" name="respuesta" placeholder="" onclick="blanquearDescripcion();">
-    </div>                                     
-    <div class="form-group"> <!-- Submit Button -->
-        <button type="button" onclick="validarForm();" class="btn btn-primary">Enviar</button>
-    </div>     
-    
-</form>
-</div>
+    <div class ="row fila_form"> 
+        <div class ="col-12"> 
+            <form class="formulario" id="formulario" name="formulario" method="POST">
+                {% csrf_token %} 
+               <label class="controls" id ="error_form_select" style="display:None;" ></label>
+               <label for="street1_id" class="control-label">Ingrese estado:</label>
+               <select class="form-control" name="estado" id="state_id" onclick="blanquearSelect();"> 
+                   <option value="-----" selected>-----</option>
+                   <option value="Aceptado">Aceptado</option>
+                   <option value="Rechazado">Rechazado</option>
+               </select> 
+               <div class="form-group"> <!-- Descripcion de respuesta -->
+                   <label class="controls" id ="error_form_descripcion" style="display:None;" ></label>
+                   <label for="street1_id" class="control-label">Ingrese descripcion de respuesta:</label>
+                   <textarea type="text" class="form-control" id="descripcion" name="respuesta" placeholder="" onclick="blanquearDescripcion();"></textarea>
+               </div>                                     
+               <div class="form-group  container_boton"> <!-- Submit Button -->
+                   <button type="button" onclick="validarForm();" class="boton_envio btn btn-success">Enviar</button>
+               </div>     
+               
+           </form>
+           </div>
+        </div>
+    </div>
+
+
+
+
+
 {% endblock  %}
 

@@ -1,0 +1,75 @@
+.container-form{
+    background-color: #25647f;
+    margin:1% 20% 10% 20%;
+    width: 50%;
+
+}
+.fila_encabezado{
+    padding-left: 3px;
+    font: 150% sans-serif;
+    text-align: left;
+    color: #fff;
+}
+.titulo-desc{
+    margin-bottom:2px;
+    border-bottom: 1px solid;
+}
+
+#state_id{
+    text-align: center;
+    margin-left:8%;
+    width:80%;
+}#state_id:focus{
+    border:2px solid rgb(2, 0, 107);
+}
+#descripcion{
+    margin-left:8%;
+    width:80%;
+    text-transform: none;
+    text-indent: 1px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    background-color: field;
+    column-count: initial !important;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-rendering: auto;
+    background-color: #fff;
+    border-radius: 5px;
+    height: 100px;
+    resize: none;
+}#descripcion:focus{
+    border:2px solid rgb(2, 0, 107);
+}
+.datos_base{
+    font-family: "Segoe IU", sans-serif;
+    padding:5px 0 0 3px;
+    text-align: left;
+    color: #fff;
+}
+.fila_form{
+    font-family: "Segoe IU", sans-serif;
+    padding-left: 10px;
+    color:white;
+}
+.fecha_datos{
+    border-bottom: 1px solid white;
+    margin-bottom:0px;
+}
+.titulo-form{
+    margin:0;
+    border-bottom: 1px solid white;
+    padding:0 0 15px 0;
+}
+.container_boton{
+    text-align: center;
+}
+.boton_envio{
+    width: 100%;
+    margin:0 0 0 -9px;
+}
+
