@@ -80,7 +80,7 @@ src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DK
     body{
         background-image: url('{% static 'core/img/fondo5.jpg' %}');
         background-repeat:repeat ;
-    }
+        }
 </style>
     {% block boostrap %}
     {% endblock %}
@@ -88,7 +88,9 @@ src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DK
     <title>{% block title %}{% endblock %}</title>
 </head>
 
-<article class="artNavHead"  >
+
+
+
 {%  if request.session.paciente_login %}
 
 {% include 'core/Header/HeaderPaciente.html' %}
@@ -108,6 +110,7 @@ src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DK
 {% endif %}
 
 
+
 {%  if request.session.paciente_login %}
 
 {% include 'core/navbar/navbarPaciente.html' %}
@@ -125,10 +128,12 @@ src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DK
 {% include 'core/navbar/navbarPrincipal.html' %}
 
 {% endif %}
-</article>
 
-<article class="artBody">
+{% comment %} <article>  {% endcomment %}
+{% comment %} <article class="artBody">  {% endcomment %}
+<article style="rgba(251, 254, 251, 88%);">
   <body>
+    
 
     {% block content %}
         <!--CONTENIDO PAGINAS WEB-->
@@ -148,11 +153,12 @@ src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DK
     {% endfor %}
     {% endif %}
     {% endblock %}
+    
 
   </body>
-
-
 </article>
+
+{% comment %} </article> {% endcomment %}
 
   <footer class="text-center text-white" style="background-color: #25647f;">
     <!-- Grid container -->

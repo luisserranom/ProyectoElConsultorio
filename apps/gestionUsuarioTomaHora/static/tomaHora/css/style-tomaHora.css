@@ -1,8 +1,8 @@
 /* 1 */
 
- @import url(https://fonts.googleapis.com/css?family=Oswald:400);
+ /* @import url(https://fonts.googleapis.com/css?family=Oswald:400); */
 
-.navigation {
+/* navigation {
   width: 100%;
   background-color: black;
 }
@@ -50,7 +50,7 @@ a:hover .logout{
 
 a {
   text-decoration: none;
-}
+} */
 
 
 
@@ -89,28 +89,35 @@ a {
   /* Fin General */
 
   /* header */
+  article{
+    background-color: rgba(251, 254, 251, 88%);
+  } 
+
+  /* header */
+
+
   .header-flex{
     display: flex;
-    background-color: rgba(251, 254, 251, 50%);
+    background-color: rgba(251, 254, 251, 0%);
     flex-direction: row;
-    
+   /*  margin-bottom: -20px;
+    margin-top: 7px; */
     
   }
   
- 
   .header-flex .logo-flex{
-  
+   /*  background-color: rgba(251, 254, 251, 60%); */
     align-items: flex-start;
     flex: 5 3 240px;
     padding-bottom: 35px;
     padding-top: 20px;
+    margin-top: -30px;
   }
   
   .header-flex .sesion-flex{
-    
+    /* background-color: rgba(251, 254, 251, 60%); */
     align-items: flex-end;
     flex: 0 3 0px;
-    justify-items: center;
   
   }
   /* fin header */
@@ -159,9 +166,7 @@ a {
 
   body{
     width: 100%;
-    margin-left: 0%;
-    margin-right: 0%;
-    margin-top: -400px;
+   
     
    
    
@@ -205,9 +210,12 @@ a {
     width: 280px ;
     height: 140px;
   }
-  
-  article{
+/* fin footer */
+  /* .artNavHead{
     background-color: rgba(251, 254, 251, 60%);
-    
-  /* fin footer */
+
   }
+
+  .artBody{
+    background-color: rgba(251, 254, 251, 60%);
+  } */

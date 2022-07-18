@@ -29,34 +29,43 @@ h5{
 
 
 
-.btn{
-/* ;
-margin-top: 10px ;
+/* .btn{
+/* ; */
+/* margin-top: 10px ;
 margin-right: 0px;
-padding-right: 0px; */
-}
+padding-right: 0px;  */
+/* } */
 
 /* Fin General */
 
 /* header */
+/* article{
+  background-color: rgba(251, 254, 251, 88%);
+}  */
+
+/* header */
+
+
 .header-flex{
   display: flex;
-  background-color: rgba(251, 254, 251, 50%);
+  /* background-color: rgba(251, 254, 251, 0%); */
   flex-direction: row;
-  
+ /*  margin-bottom: -20px;
+  margin-top: 7px; */
   
 }
 
 .header-flex .logo-flex{
-
+ /*  background-color: rgba(251, 254, 251, 60%); */
   align-items: flex-start;
   flex: 5 3 240px;
   padding-bottom: 35px;
   padding-top: 20px;
+  margin-top: -30px;
 }
 
 .header-flex .sesion-flex{
-  
+  /* background-color: rgba(251, 254, 251, 60%); */
   align-items: flex-end;
   flex: 0 3 0px;
 
@@ -107,8 +116,7 @@ nav{
 
 body{
   width: 100%;
-  margin-left: 0%;
-  margin-right: 0%;
+  
   
   
  
@@ -124,7 +132,7 @@ body{
 
  /* inicio footer */
 
-.text-uppercase{}
+/* .text-uppercase{} */
 
 .text-dark{
 font-family: 'Trebuchet MS', sans-serif;
@@ -133,7 +141,7 @@ margin: 10px;
 font-style: italic;
 }
 
-.list-unstyled{}
+/* .list-unstyled{}
 
 .navbar-brand{}
 
@@ -148,7 +156,7 @@ font-style: italic;
 .container-redes{
 
   
-}
+} */
 
 footer{
   margin-bottom: -30px;
@@ -159,11 +167,11 @@ footer{
   width: 280px ;
   height: 140px;
 }
-
+/* 
 .artBody{
   background-color: rgba(251, 254, 251, 88%);
 }
 .artFoot{
   background-color: rgba(251, 254, 251, 88%);
 }
-
+ */
