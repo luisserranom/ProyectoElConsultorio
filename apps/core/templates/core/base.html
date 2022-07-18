@@ -9,8 +9,8 @@
     <meta name="author" content="Grupo 3">
 
 
-    <link href="{% static 'core/css/style.css' %}" rel="stylesheet" >
-    <link href="{% static 'core/css/style-index.css' %}" rel="stylesheet" >
+    <link href="{% static 'core/css/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'core/css/style-index.css' %}" rel="stylesheet" type="text/css" >
     <link href="{% static 'core/css/bootstrap.min.css' %}" rel="stylesheet" >
 
     <script src="{% static 'core/js/jquery-3.6.0.js' %}"></script> 
@@ -62,14 +62,6 @@ src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DK
       href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     
-    <!-- Nuestro css   !!! VER FUNCION DE TABLA-->
-    {% comment %} <link rel="stylesheet" type="text/css" href="static/css/user-form.css"
-      th:href="@{/css/user-form.css}">
-  {% endcomment %}
-
-
-
-
     <!-- DATA TABLE -->
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
@@ -95,47 +87,48 @@ src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DK
 
     <title>{% block title %}{% endblock %}</title>
 </head>
-  {%  if request.session.paciente_login %}
 
-    {% include 'core/Header/HeaderPaciente.html' %}
+<article class="artNavHead"  >
+{%  if request.session.paciente_login %}
 
-  {% elif request.session.admin_login %}
+{% include 'core/Header/HeaderPaciente.html' %}
 
-  {% include 'core/Header/HeaderAdministrador.html' %}
+{% elif request.session.admin_login %}
 
-  {% elif request.session.farmaceutico_login %}
+{% include 'core/Header/HeaderAdministrador.html' %}
 
-  {% include 'core/Header/HeaderFarmaceutico.html' %}
+{% elif request.session.farmaceutico_login %}
 
-  {% else %}
+{% include 'core/Header/HeaderFarmaceutico.html' %}
 
-  {% include 'core/Header/headerPrincipal.html' %}
+{% else %}
 
-  {% endif %}
+{% include 'core/Header/headerPrincipal.html' %}
+
+{% endif %}
 
 
-  {%  if request.session.paciente_login %}
+{%  if request.session.paciente_login %}
 
-    {% include 'core/navbar/navbarPaciente.html' %}
+{% include 'core/navbar/navbarPaciente.html' %}
 
-  {% elif request.session.admin_login %}
+{% elif request.session.admin_login %}
 
-  {% include 'core/navbar/navbarAdministrativo.html' %}
+{% include 'core/navbar/navbarAdministrativo.html' %}
 
-  {% elif request.session.farmaceutico_login %}
+{% elif request.session.farmaceutico_login %}
 
-  {% include 'core/navbar/navbarFarmaceutico.html' %}
+{% include 'core/navbar/navbarFarmaceutico.html' %}
 
-  {% else %}
+{% else %}
 
-    {% include 'core/navbar/navbarPrincipal.html' %}
+{% include 'core/navbar/navbarPrincipal.html' %}
 
-  {% endif %}
+{% endif %}
+</article>
 
-  <article>
-  
-    <body>
-  
+<article class="artBody">
+  <body>
 
     {% block content %}
         <!--CONTENIDO PAGINAS WEB-->
@@ -158,119 +151,121 @@ src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DK
 
   </body>
 
+
 </article>
-<footer class="text-center text-white" style="background-color: #25647f;">
-  <!-- Grid container -->
-  <div class="container p-4">
-      <!--Grid row-->
-      <div class="row">
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Direccion</h5>
-  
-          <ul class="list-unstyled mb-0">
-            <li>
-              <h6  class="text-dark">Micasita #0420</h6>
-            </li>
-            <li>
-              <h6  class="text-dark">Comuna San bernardo</h6>
-            </li>
-          
-          </ul>
-        </div>
-        <!--Grid column-->
-  
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-0">Contactanos</h5>
-  
-          <ul class="list-unstyled">
-            <li>
-              <h6 class="text-dark">+56 22 2222 2222</h6>
-            </li>
-            <li>
-              <h6 class="text-dark">Elconsultorio@gmail.com</a>
-            </li>
+
+  <footer class="text-center text-white" style="background-color: #25647f;">
+    <!-- Grid container -->
+    <div class="container p-4">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Direccion</h5>
+    
+            <ul class="list-unstyled mb-0">
+              <li>
+                <h6  class="text-dark">Micasita #0420</h6>
+              </li>
+              <li>
+                <h6  class="text-dark">Comuna San bernardo</h6>
+              </li>
             
-          </ul>
-        </div>
-        <!--Grid column-->
-        
-  
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Horarios</h5>
-  
-          <ul class="list-unstyled mb-0">
-            <li>
-              <h6 class="text-dark">Lunes a jueves 08:30 a 17:00</h6>
-            </li>
-            <li>
-              <h6  class="text-dark">Viernes 08:30 a 14:00</h6>
-            </li>
-            <li>
-              <h6 class="text-dark">Sabado y domingo cerrado</h6>
-            </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+    
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase mb-0">Contactanos</h5>
+    
+            <ul class="list-unstyled">
+              <li>
+                <h6 class="text-dark">+56 22 2222 2222</h6>
+              </li>
+              <li>
+                <h6 class="text-dark">Elconsultorio@gmail.com</a>
+              </li>
+              
+            </ul>
+          </div>
+          <!--Grid column-->
           
-          </ul>
-        </div>
-        <!--Grid column-->
-  
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <a class="img-footer" href="index.html"><img src="{% static '/core/img/925.png' %}" alt="logo" ></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  
-        
-        </div>
-        <!--Fin Datos Footer-->
-        <!--Inicio Sociales Footer-->
-      
-          <!-- Grid container -->
-          <div class="container-redes p-4 pb-0" >
-            <!-- Section: Social media -->
-            <section class="mb-4">
-              <!-- Facebook -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-        
-              <!-- Twitter -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-twitter"></i
-              ></a>
-        
-              
-        
-              <!-- Instagram -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-instagram"></i
-              ></a>
-        
-              
-        
-              <!-- Whatsapp -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-whatsapp"></i
-              ></a>
-            </section>
-            <!-- Section: Social media -->
+    
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Horarios</h5>
+    
+            <ul class="list-unstyled mb-0">
+              <li>
+                <h6 class="text-dark">Lunes a jueves 08:30 a 17:00</h6>
+              </li>
+              <li>
+                <h6  class="text-dark">Viernes 08:30 a 14:00</h6>
+              </li>
+              <li>
+                <h6 class="text-dark">Sabado y domingo cerrado</h6>
+              </li>
+            
+            </ul>
           </div>
-          <!-- Grid container -->
-        
-          <!-- Copyright -->
-          <div class="FooterInterior" >
-            "© 2022 Copyright"
-            <h6 class="text-white">El Consultorio</h6>
+          <!--Grid column-->
+    
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <a class="img-footer" href="index.html"><img class="imagenFoot"src="{% static '/core/img/925.png' %}" alt="logo" ></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    
+          
           </div>
-          <!-- Copyright -->
-      
-
-        <!--Fin sociales Footer-->
+          <!--Fin Datos Footer-->
+          <!--Inicio Sociales Footer-->
         
-
-</footer>
-
+            <!-- Grid container -->
+            <div class="container-redes p-4 pb-0" >
+              <!-- Section: Social media -->
+              <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+          
+                <!-- Twitter -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+          
+                
+          
+                <!-- Instagram -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+          
+                
+          
+                <!-- Whatsapp -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-whatsapp"></i
+                ></a>
+              </section>
+              <!-- Section: Social media -->
+            </div>
+            <!-- Grid container -->
+          
+            <!-- Copyright -->
+            <div class="FooterInterior" >
+              "© 2022 Copyright"
+              <h6 class="text-white">El Consultorio</h6>
+            </div>
+            <!-- Copyright -->
+        
+  
+          <!--Fin sociales Footer-->
+          
+  
+  </footer>
+  
 
 
 </html>

@@ -1,8 +1,11 @@
 {% extends 'core/base.html' %}
+
 {% load static %}
+
 {% block boostrap %}
 
-<link href="{% static '/tomaHora/css/style-tomaHra.css'%}" rel="stylesheet" >
+<link href="{% static '/tomaHora/css/style-tomaHor.css'%}" rel="stylesheet" >
+<script src="{% static '/tomaHora/js/filtrado.js' %}"></script>
 
 {% endblock %}    
 
@@ -22,7 +25,7 @@
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+        <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab" id="tablaDatos">
           <div class="card">
             <div class="card-header">
               <h4>Toma Hora</h4>
@@ -32,27 +35,25 @@
                   
                 <!-- agegra aqqui los combobox -->
                 <label for="start">Desde:</label>
-
-                <input type="date" id="start" name="trip-start"
+                <input type="date" id="fechaDesde" name="trip-start"
                 value="2022-07-19"
                 min="2022-07-19" max="2018-12-31">
-                <label for="start">Hasta:</label>
 
-                <input type="date" id="start" name="trip-start"
+                <label for="start">Hasta:</label>
+                <input type="date" id="fechasHasta" name="trip-start"
                 value="2018-07-22"
                 min="2018-01-01" max="2018-12-31">
 
                 <label for="cars">Area</label>
-                  
-                <select name="select-area" >
-
-                
+                <select name="select-area" id="selectArea" >
+                  <option valie ="----" selected>----</option>
                 {% if area %}
                   {% for area in area %}
                   <option value="{{area.nombre_area}}}">{{area.nombre_area}}</option>
                   {% endfor %}
                 {% endif %}
                 </select>
+                <button  class="btn btn-primary" type="button" onclick="filtrarDatos();" >filtrar</button>
                 <table id="userList" class="table table-bordered table-hover table-striped">
                   <thead class="thead-light">
                   <tr>
@@ -68,6 +69,7 @@
                     {% if hora %}
                     {% for h in hora %}
                       <tbody>
+                        <tr id="filas">
                           <td name = "id_hora">{{h.id_hora}}</td>
                           <td name = "fecha_registro">{{h.fecha }}</td> 
                           <td name = "hora">{{h.hora }}</td>  
@@ -77,11 +79,11 @@
                             <a  href="{% url 'agregar-hora-medica' h.id_hora %}">
                               aaaa
                             </a>
-                        </td>
+                          </td>
+                        </tr>
                       </tbody>
                     {% endfor %}
                 {% endif %}
-                  </tr>
                   </tbody>
                 </table>
               </div>

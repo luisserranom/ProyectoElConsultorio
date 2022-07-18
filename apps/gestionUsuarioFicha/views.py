@@ -17,43 +17,41 @@ def homeFicha(request):
                     idAler = []
                     idObser = []
                     if ficha == None:
-                        print("error en la ficha")
+                        pass
                     else:
                         for x in ficha:
                             if x.id_receta == None:
-                                print("Tiene un campo vacio receta")
+                                pass
                             else:
                                 receta = x.id_receta.id_receta
                                 idRec.append(receta)
                                 
                             if x.id_enfermedades_cronicas == None:
-                                print("Tiene un campo vacio")
+                                pass
                             else:                              
                                 enfermedadesCronicas = x.id_enfermedades_cronicas.id_enfermedades_cronicas
                                 idEnfCro.append(enfermedadesCronicas)   
                                  
                             if x.id_alergias == None:
-                                print("Tiene un campo vacio")
+                                pass
                             else:
                                 alergia = x.id_alergias.id_alergias
                                 idAler.append(alergia)
                                 
                             if x.id_enfermedades_terminales == None:
-                                print("Tiene un campo vacio")
+                                pass
                             else:
                                 enfermedadesTerminales = x.id_enfermedades_terminales.id_enfermedades_terminales
                                 idEnfTer.append(enfermedadesTerminales)
-                            print("ESTA ES LA ID ")
-                            print(x.id_observacion)   
                             if x.id_observacion == None :
-                                print("Tiene un campo vacio")
+                                pass
                             else:
                                 observacion = x.id_observacion.id_observacion
                                 idObser.append(observacion) 
                     
                     recetas = []
                     if idRec == []:
-                        print("Campo vacio")
+                        pass
                     else:
                         for x in idRec:
                             recet = Receta.objects.get(id_receta = x)
@@ -61,7 +59,7 @@ def homeFicha(request):
                     
                     enfermedadesCronic = []
                     if idEnfCro == []:
-                        print("Campo vacio")
+                        pass
                     else:
                         for x in idEnfCro:
                             enfCro = EnfermedadesCronicas.objects.get(id_enfermedades_cronicas = x)
@@ -69,16 +67,15 @@ def homeFicha(request):
                     
                     alergias = [None]
                     if idAler == []:
-                        print("Campo vacio")
+                        pass
                     else:
                         for x in idAler:
                             aler = Alergias.objects.get(id_alergias = x)
                             alergias.append(aler)
                     
                     enferTerminales = []
-                    print(idEnfTer)
                     if idEnfTer == []:
-                        print("Campo vacio")
+                        pass
                     else:
                         for x in idEnfTer:
                             enfTer = EnfermedadesTerminales.objects.get(id_enfermedades_terminales = x)
@@ -86,7 +83,7 @@ def homeFicha(request):
                     
                     observac = []
                     if idObser == []:
-                        print("Campo vacio")
+                        pass
                     else:
                         for x in idObser:
                             obs = Observaciones.objects.get(id_observacion = x)
