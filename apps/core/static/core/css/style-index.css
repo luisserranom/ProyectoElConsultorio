@@ -205,7 +205,6 @@ article{
   padding-top: 70px;
   padding-bottom: 100px;
   
-  
 }
 
 
@@ -390,13 +389,11 @@ article{
   footer{
     margin-bottom: -30px;
   }
-  
-  article{
-    margin-top: -3px;
+  .artNavHead{
     background-color: rgba(251, 254, 251, 88%);
-    margin-bottom: -60px;
-    padding-bottom: 200px;
-    padding-top: 50px;
+  }
+  .artFoot{
+    background-color: rgba(251, 254, 251, 88%);
   }
 }
 

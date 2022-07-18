@@ -2,10 +2,6 @@
 
 @import url(https://fonts.googleapis.com/css?family=Oswald:400);
 
-.navigation {
-  width: 100%;
-  background-color: black;
-}
 
 img {
   width: 25px;
@@ -125,11 +121,14 @@ a {
   
    /*  height: 70px; */
   
-  
-    
-    
-    
-  
+  }
+  .imagen-header{
+    width: 100px!important;
+    height:100px!important;
+  }
+  .imagenFoot{
+    width: 50px!important;
+    height:50px !important;
   }
   
   .navbar-expand-lg{
@@ -204,8 +203,8 @@ a {
     height: 140px;
   }
   
-  article{
-    background-color: rgba(251, 254, 251, 60%);
+  .artBody{
+    background-color: rgba(251, 254, 251, 88%);
     
   /* fin footer */
   }

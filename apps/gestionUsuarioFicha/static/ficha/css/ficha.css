@@ -216,7 +216,8 @@
     height: 140px;
   }
   
-  article{
-    background-color: rgba(251, 254, 251, 60%);
+
+  .artNavHead{
+    background-color: rgba(251, 254, 251, 88%);
     
   }

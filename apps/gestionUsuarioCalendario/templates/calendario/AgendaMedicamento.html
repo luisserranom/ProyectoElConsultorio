@@ -3,7 +3,7 @@
 {% load static %}
      
 {% block boostrap %}
-  <link href="{% static '/calendario/css/style-agendaMedica.css' %}" rel="stylesheet" >
+  <link href="{% static '/calendario/css/style-agendaMedica.css' %}" rel="stylesheet"  type="text/css" >
 {% endblock %}
 
   
@@ -17,7 +17,6 @@
       <li class="nav-item">
       <a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">Retiro medicamento</a>
       </li>
-                 
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
@@ -68,7 +67,7 @@
                     <tr>
                       <th scope="row">{{x.id_receta}}</th>
                       <td>{{x.fecha_Retiro}}</td>
-                      <td>>{{x.fecha_limite}}</td>
+                      <td>{{x.fecha_limite}}</td>
                       <td>{{x.id_receta}}</td>
                       <td>{{x.estado}}</td>
                       <td>{{x.indicaciones}}</td>

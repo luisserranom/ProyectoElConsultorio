@@ -160,8 +160,10 @@ footer{
   height: 140px;
 }
 
-article{
-  background-color: rgba(251, 254, 251, 60%);
-  
-/* fin footer */
+.artBody{
+  background-color: rgba(251, 254, 251, 88%);
 }
+.artFoot{
+  background-color: rgba(251, 254, 251, 88%);
+}
+
