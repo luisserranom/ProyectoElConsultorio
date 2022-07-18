@@ -1,11 +1,15 @@
 {% extends 'core/base.html' %}
 
+
+{% load static %}
+
 {% block boostrap %}
-  <link href="../static/gestionSolicitud/css/EstadoSolitudesPacientes.css " type="text/css" rel="stylesheet" >
+
+<link href="{% static '/tomaHora/css/estado-solicitud.css'%}" rel="stylesheet" type="text/css" >
+
 {% endblock %}
 
 
-{% load static %}
 
 {% block content %}
 
