@@ -88,7 +88,7 @@ def agregarHora(request,id):
                         else:
                             data = {
                                 'hora': Hora.objects.filter(estado = "disponible"),
-                                'error': False,
+                                'error': True,
                             }
                             messages.error(request,"NO PUEDES AGREGAR HORA, YA QUE NO TE CORRESPONDE POR TU RANGO A , ESTA DEBE SER A LAS 8AM")
                             return render(request,'tomaHora/TomaDeHora.html',data)  
@@ -196,6 +196,7 @@ def estadoSolic(request):
                         listaSolic.append(solicitud)
                     else:
                         pass
+                print(listaSolic)
                 data = {
                     'lista':listaSolic,
                 }            

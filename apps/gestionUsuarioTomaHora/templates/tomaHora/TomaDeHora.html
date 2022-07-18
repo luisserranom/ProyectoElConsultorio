@@ -12,9 +12,8 @@
 {% block title  %} MENU HORA {% endblock  %}
 
 {% block content %}
-{% if error %}
-  <h2>Usted ya posee dos horas diarias </h2>
-{% else %}
+
+{% if hora %}
   <div class="container">
     <div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
       <ul class="nav nav-tabs justify-content-end">
@@ -77,7 +76,7 @@
                           <td name = "id_area">{{h.id_area }}</td>
                           <td style="text-align: center">
                             <a  href="{% url 'agregar-hora-medica' h.id_hora %}">
-                              aaaa
+                              Tomar Hora
                             </a>
                           </td>
                         </tr>
@@ -100,9 +99,6 @@
 
           
 {% endblock %}
-
-{% block js %}
-
 
 {% block js %}
 {% if error %}

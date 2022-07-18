@@ -35,25 +35,25 @@
                   <thead class="thead-light">
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Rut</th>
                     <th scope="col">Hora</th>
                     <th scope="col">Fecha</th>
                     <th scope="col">descripcion</th>
-                    <th scope="col">opciones</th>
+                    <th scope="col">Estado </th>
+                    <th scope="col">Respuesta </th>
                     <th></th>
                   </tr>
                   </thead>
                   <tbody>
-                    {% if listaSolic  %}
-                    {% for list in listaSolic  %}
+                    {% if lista  %}
+                    {% for list in lista  %}
                     <tr>
                         <th scope="row">{{list.id_solicitud}}</th>
                         <td>{{list.hora}}</td>
                         <td>{{list.fecha}}</td>
                         <td>{{list.descripcion}}</td>
-                        <td>
-                          <a href="{% url 'modif-hora' list.id_solicitud %}"><i class="fas fa-edit"></i></a>
-                        </td>
+                        <td>{{list.estado}} </td>
+                        <td>{{list.respuesta}}</td>
+
                       </tr>
                     {% endfor %}
                 {% endif %}

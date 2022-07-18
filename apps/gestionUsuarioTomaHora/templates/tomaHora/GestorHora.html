@@ -41,7 +41,7 @@
                           <td name = "id_registro">{{rg.id_registro}}</td>
                           <td name = "descripcion">{{rg.descripcion }}</td> 
                           <td name = "id_paciente">{{rg.id_paciente }}</td>  
-                          <td name = "id_hora" >{{rg.id_hora }}</td>
+                          <td name = "id_hora" >{{rg.fecha}}  {{rg.hora }}</td>
                           <td style="text-align: center">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-left: 5px; margin-top: 5px; margin-bottom: 5px;"  >
                               <i class="fas fa-edit"></i>
@@ -105,67 +105,5 @@
 
   <!-- Button trigger modal -->
 
-{% include 'tomaHora/listar-solicitudes.html' %} 
 {% endblock %}
           
-  <!-- Nuevo Gestor Hora -->
-  <article>
-    <body >
-      
-      <div class="container" >
-        <div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
-          <ul class="nav nav-tabs justify-content-end">
-            <li class="nav-item">
-            <a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">Gestiona Tus Horas Medicas</a>
-            </li>
-            			   	
-            </li>
-          </ul>
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
-              <div class="card">
-                <div class="card-header">
-                  <h4>Mis Horas </h4>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table id="userList" class="table table-bordered table-hover table-striped">
-                      <thead class="thead-light">
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre Paciente</th>
-                        <th scope="col">Hora</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Especialista</th>
-                        <th scope="col">Área</th>
-                        <th></th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Cristian</td>
-                        <td>Ruiz</td>
-                        <td>c.r.username</td>
-                        <td>c.r.username@blog.com</td>
-                        <td>c.r.username@blog.com</td>
-                    
-                        <td>
-                          <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
-                        </td>
-                      </tr>
-                      </tbody>
-                    </table>
-                  </div>
-      
-                </div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </body>
-</article>
-<br>
-<br>
