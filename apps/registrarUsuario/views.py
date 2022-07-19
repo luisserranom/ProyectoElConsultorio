@@ -47,7 +47,7 @@ def registrarUsuario(request):
                             'error':False,
                             'verificado':True
                         }
-                        messages.success(request,"Felicitaciones, usuario registrado",data)                       
+                        messages.success(request,"Felicitaciones, usuario registrado")                       
                         return render(request,'core/home.html',data)   
                     else:    
                         data={
@@ -63,7 +63,6 @@ def registrarUsuario(request):
         else:
             return redirect ('home')
     except KeyError:
-        print("Se ha muerto todo, llamar al Rorro")
         return redirect ('home')
 
         

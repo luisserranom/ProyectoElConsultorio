@@ -14,33 +14,27 @@ def homeFarm(request):
                     fichaVer = FichaMedica.objects.filter(id_paciente = paciente).exists()
                     if fichaVer:
                         ficha = FichaMedica.objects.filter(id_paciente = paciente)
-                        print(ficha)
                         idRec = []
                         if ficha == None:
-                                print("error ficha")
+                            pass
                         else:
                             for x in ficha:
                                 if x.id_receta == None:
-                                    print("entre al x.idreceta")
+                                   pass
                                 else:
                                     receta = x.id_receta.id_receta
-                                    idRec.append(receta)
-                        print(idRec)
-                        
+                                    idRec.append(receta)                    
                         recetas = []
                         if idRec == None:
-                            recetas = []
+                            pass
                         else:
                             for x in idRec:
                                 aa = Receta.objects.get(id_receta = x)
                                 recetas.append(aa)
-                        print (recetas)
-                        
                         data={
                             'Receta' : recetas,
                             'ficha' : ficha
                         }
-                        print("no entraste al if de abajo mi")
                         return render(request,'gestionFarmaceutico/gestFarm.html',data)  
                     else:
                         messages.error(request,"no se encuentra el paciente vuelva a ingresarlo")
@@ -78,13 +72,10 @@ def modifReceta(request,id):
             if request.method == 'POST':
                 a = request.POST.get('estado_receta')
                 b = request.POST.get('respuesta_receta')  
-                print(a)
-                print(b)
                 receta = Receta.objects.get(id_receta = id)
                 receta.estado = a
                 receta.respuesta = b  
                 receta.save()
-                print("entre al if ")
                 return redirect('homeFarm')
             else:             
                 return render(request,'gestionFarmaceutico/modifReceta.html')

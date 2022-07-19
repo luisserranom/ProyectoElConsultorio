@@ -20,14 +20,13 @@ def gestionMedico(request):
                         'especialidad': Especialidad.objects.all(),
                         'form':EspecialistaForm(),
                         'error': True,
-                        }
-                    """ commit de prueba  """   
+                        } 
                     return render(request,'gestionMedico/GestionDoctor.html',data)
                 else:
                     form = EspecialistaForm(request.POST or None)
                     if form.is_valid():
                         form.save()
-                        """ messages.success(request,"Agregado correctamente") """
+                        messages.success(request,"Agregado correctamente")
                         return redirect('gestionMedico')
             else:
                 data ={

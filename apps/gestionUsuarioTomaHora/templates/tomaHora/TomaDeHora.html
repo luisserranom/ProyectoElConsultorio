@@ -104,15 +104,33 @@
 {% block js %}
 
 
-{% if messages %}
-  {% for m in messages  %}
+{% block js %}
+{% if error %}
+    {% if verificado %}
+        {% if messages %}
+            {% for m in messages  %}
+            <script>
+                swal.fire({
+                "title":"Bienvenido",
+                "text":"{{m}}",
+                "icon":"success",
+                })
+            </script>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+    {% if messages %}
+    {% for m in messages  %}
     <script>
-      swal.fire({
+        swal.fire({
         "title":"Error",
         "text":"{{m}}",
-        "icon":"warning",
-      })
+        "icon":"error",
+        })
     </script>
-  {% endfor %}
-  {% endif %}
+    {% endfor %}
+    {% endif %}
+{% endif%}
+
 {% endblock %}

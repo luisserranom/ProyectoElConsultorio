@@ -48,13 +48,11 @@ def agregarHora(request,id):
     try:
         if request.session['paciente_login']['userP']:
             if request.method == "POST":
-                pass
-                print("tas ca")   
+                pass 
             else:
                 rutSession = request.session['paciente_login']['userP']['rut']
                 paciente = Paciente.objects.get(rut = rutSession)
-                horaPc = int(datetime.now().strftime(" %H") )
-                print("estas en el else de agregar hora")              
+                horaPc = int(datetime.now().strftime(" %H") )            
                 rangoA = Rango.objects.get(id_rango = 1)
                 rangoB = Rango.objects.get(id_rango = 2)
                 rangoC = Rango.objects.get(id_rango = 3)
@@ -154,7 +152,7 @@ def gestorHora(request):
     try:
         if request.session['paciente_login']['userP']:
             if request.method == 'POST':
-                print("xd")
+                pass
             else:
                 rutSession = request.session['paciente_login']['userP']['rut']
                 paciente = Paciente.objects.get(rut = rutSession)
@@ -162,14 +160,12 @@ def gestorHora(request):
                 listaSolic = []
                 for x in registroHr:
                     id_reg = x.id_registro
-                    print(id_reg)
                     verSolic = ListaSolicitudHora.objects.filter(id_registro = id_reg).exists()
                     if verSolic:
-                        print("entre aca")
                         solicitud = ListaSolicitudHora.objects.get(id_registro = id_reg)
                         listaSolic.append(solicitud)
                     else:
-                        print("entre aca al falseee")
+                        pass
                 data = {
                     'registro':registroHr,
                     'lista':listaSolic,
@@ -240,7 +236,6 @@ def solicitarCambioHora(request,id):
             if request.method == "POST":
                 registro = RegistroHora.objects.get(id_registro = id)
                 id_regist =  registro.id_registro
-                print(id_regist)
                 verifRegistList = ListaSolicitudHora.objects.filter(id_registro = id_regist).exists()
                 if verifRegistList:
                     messages.error(request,"YA SE ENCUETRA UNA SOLICITUD")
@@ -249,8 +244,6 @@ def solicitarCambioHora(request,id):
                     descripcion = request.POST.get('descripcion')
                     hora = request.POST.get('hora')
                     fecha = request.POST.get('fecha')
-                    print(hora)
-                    print(fecha)
                     ListaSolicitudHora.objects.create(
                         descripcion = descripcion,
                         hora = hora,
