@@ -83,7 +83,9 @@ def agregarHora(request,id):
                             data = {
                                 'hora': Hora.objects.filter(estado = "disponible"),
                                 'error': False,
+                                'verificado':True,
                             }
+                            """ messages.success(request,"Hora tomada correctamente.") """
                             return render(request,'tomaHora/TomaDeHora.html',data)  
                         else:
                             data = {
@@ -105,10 +107,13 @@ def agregarHora(request,id):
                                 id_paciente = paciente,
                                 id_hora = hora,
                             )
+                            
                             data = {
                                 'hora': Hora.objects.filter(estado = "disponible"),
                                 'error': False,
+                                'verificado':True,
                             }
+                            """ messages.success(request,"Hora tomada correctamente.") """
                             return render(request,'tomaHora/TomaDeHora.html',data)  
                         else:
                             data = {
@@ -129,10 +134,13 @@ def agregarHora(request,id):
                                 id_paciente = paciente,
                                 id_hora = hora,
                             )
+                           
                             data = {
                                 'hora': Hora.objects.filter(estado = "disponible"),
                                 'error': False,
+                                'verificado':True
                             }
+                            """ messages.success(request,"Hora tomada correctamente.") """
                             return render(request,'tomaHora/TomaDeHora.html',data)  
                         else:
                             data = {
@@ -166,10 +174,11 @@ def gestorHora(request):
                         listaSolic.append(solicitud)
                     else:
                         pass
+                    
                 data = {
                     'registro':registroHr,
                     'lista':listaSolic,
-                }            
+                }           
                 return render(request,'tomaHora/GestorHora.html',data)
         else:
             request.session.flush()
@@ -196,7 +205,6 @@ def estadoSolic(request):
                         listaSolic.append(solicitud)
                     else:
                         pass
-                print(listaSolic)
                 data = {
                     'lista':listaSolic,
                 }            
@@ -251,6 +259,7 @@ def solicitarCambioHora(request,id):
                         fecha = fecha,
                         id_registro = registro,
                         )
+                    messages.success(request,"Solicitud enviada.") 
                     return redirect('gestorHora')
             else:
                 return render(request,'tomaHora/GestorHora.html')

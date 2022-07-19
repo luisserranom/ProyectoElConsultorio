@@ -26,7 +26,6 @@ def gestionMedico(request):
                     form = EspecialistaForm(request.POST or None)
                     if form.is_valid():
                         form.save()
-                        messages.success(request,"Agregado correctamente")
                         return redirect('gestionMedico')
             else:
                 data ={
@@ -49,7 +48,6 @@ def eliminarMedico(request,rut):
         if request.session['admin_login']['userA']:
             especialista = Especialista.objects.get(rut_especialista = rut)
             especialista.delete() 
-            """ messages.success(request,"Eliminado correctamente") """
             return redirect('gestionMedico')
         else:
             request.session.flush()

@@ -11,6 +11,42 @@
 
 {% block title  %} MENU HORA {% endblock  %}
 
+
+
+{% block js %}
+{% if error %}
+    {% if verificado %}
+        {% if messages %}
+            {% for m in messages  %}
+            <script>
+                swal.fire({
+                "title":"Bienvenido",
+                "text":"{{m}}",
+                "icon":"success",
+                })
+            </script>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+    {% if messages %}
+    {% for m in messages  %}
+    <script>
+        swal.fire({
+        "title":"Error",
+        "text":"{{m}}",
+        "icon":"error",
+        })
+    </script>
+    {% endfor %}
+    {% endif %}
+{% endif%}
+
+{% endblock %}
+
+
+
+
 {% block content %}
 
 {% if hora %}
@@ -100,33 +136,3 @@
           
 {% endblock %}
 
-{% block js %}
-{% if error %}
-    {% if verificado %}
-        {% if messages %}
-            {% for m in messages  %}
-            <script>
-                swal.fire({
-                "title":"Bienvenido",
-                "text":"{{m}}",
-                "icon":"success",
-                })
-            </script>
-            {% endfor %}
-        {% endif %}
-    {% endif %}
-
-    {% if messages %}
-    {% for m in messages  %}
-    <script>
-        swal.fire({
-        "title":"Error",
-        "text":"{{m}}",
-        "icon":"error",
-        })
-    </script>
-    {% endfor %}
-    {% endif %}
-{% endif%}
-
-{% endblock %}
