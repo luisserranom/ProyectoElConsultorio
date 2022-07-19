@@ -3,7 +3,7 @@
 {% load static %}
      
 {% block boostrap %}
-  <link href="{% static '/calendario/css/style-agendaMedica.css' %}" rel="stylesheet"  type="text/css" >
+  <link href="{% static ' /calendario/css/style-agendaMedica.css' %}" rel="stylesheet"  type="text/css" >
 {% endblock %}
 
   
@@ -11,84 +11,86 @@
 
 
 {% block content %}
-<div class="container">
-  <div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
-    <ul class="nav nav-tabs justify-content-end">
-      <li class="nav-item">
-      <a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">Retiro medicamento</a>
-      </li>
-      </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
-        <div class="card">
-          <div class="card-header">
-            <h4>Retiro Medicamento</h4>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <!-- agegra aqqui los combobox -->
-              <label for="start">Desde:</label>
 
-              <input type="date" id="start" name="trip-start"
-              value="2018-07-22"
-              min="2018-01-01" max="2018-12-31">
-              <label for="start">Hasta:</label>
-
-              <input type="date" id="start" name="trip-start"
-              value="2018-07-22"
-              min="2018-01-01" max="2018-12-31">
-
-
-              
-              <label for="cars">Area</label>
-                
-              <select name="cars" id="cars">
-                <option value="volvo">Medicina general</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-              </select>
-              <table id="userList" class="table table-bordered table-hover table-striped">
-                <thead class="thead-light">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Fecha Retiro</th>
-                  <th scope="col">Fecha limite</th>
-                  <th scope="col">Numero Receta</th>
-                  <th scope="col">Estado</th>
-                  <th scope="col">Detalle</th>
-                  <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                  {% if Receta %}
-                  {% for x in Receta %}
-                    <tr>
-                      <th scope="row">{{x.id_receta}}</th>
-                      <td>{{x.fecha_Retiro}}</td>
-                      <td>{{x.fecha_limite}}</td>
-                      <td>{{x.id_receta}}</td>
-                      <td>{{x.estado}}</td>
-                      <td>{{x.indicaciones}}</td>
-                    <td>
-                  {% endfor %}
-                  {% else %}
-                  <h5>Usted no presenta recetas por retirar </h5>
-                  {% endif %}
-      
-                  </td>
-                </tr>
-                </tbody>
-              </table>
+  <div class="container">
+    <div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
+      <ul class="nav nav-tabs justify-content-end">
+        <li class="nav-item">
+        <a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">Retiro medicamento</a>
+        </li>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+          <div class="card">
+            <div class="card-header">
+              <h4>Retiro Medicamento</h4>
             </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <!-- agegra aqqui los combobox -->
+                <label for="start">Desde:</label>
 
+                <input type="date" id="start" name="trip-start"
+                value="2018-07-22"
+                min="2018-01-01" max="2018-12-31">
+                <label for="start">Hasta:</label>
+
+                <input type="date" id="start" name="trip-start"
+                value="2018-07-22"
+                min="2018-01-01" max="2018-12-31">
+
+
+                
+                <label for="cars">Area</label>
+                  
+                <select name="cars" id="cars">
+                  <option value="volvo">Medicina general</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select>
+                <table id="userList" class="table table-bordered table-hover table-striped">
+                  <thead class="thead-light">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Fecha Retiro</th>
+                    <th scope="col">Fecha limite</th>
+                    <th scope="col">Numero Receta</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Detalle</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {% if Receta %}
+                    {% for x in Receta %}
+                      <tr>
+                        <th scope="row">{{x.id_receta}}</th>
+                        <td>{{x.fecha_Retiro}}</td>
+                        <td>{{x.fecha_limite}}</td>
+                        <td>{{x.id_receta}}</td>
+                        <td>{{x.estado}}</td>
+                        <td>{{x.indicaciones}}</td>
+                      <td>
+                    {% endfor %}
+                    {% else %}
+                    <h5>Usted no presenta recetas por retirar </h5>
+                    {% endif %}
+        
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
-     </div>
+      </div>
     </div>
   </div>
-</div>
+
   
 {% endblock %}
